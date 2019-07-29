@@ -1,0 +1,1 @@
+//receives data and styles, mainly a dumb component

@@ -1,0 +1,1 @@
+//just a styled 30 second time bar
