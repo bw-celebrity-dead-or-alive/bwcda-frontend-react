@@ -1,5 +1,3 @@
-//Add more names to the data Array
-//Sort actors with no images
 //Figure out the Logic for randomizing the array of data celebs
 
 import React, { useEffect, useState } from "react";
@@ -52,7 +50,6 @@ const GameScreen = () => {
     setId(id + 1)
   }
 
-
   useEffect(() => {
     const timer = setTimeout(() => setTime(true), 30000);
     return () => clearTimeout(timer);
@@ -63,7 +60,7 @@ const GameScreen = () => {
     <div>
       <Route path="/play" render={() => (
         time ? (
-          <Redirect to="/" />
+          <Redirect to="/end" props={score} />
         ) : (
             <div>
               <img src={logo} className='App-logo' alt='logo' />
