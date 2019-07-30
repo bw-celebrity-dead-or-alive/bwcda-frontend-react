@@ -11,7 +11,6 @@ import '../src/scss/App.scss'
 export default function App() {
   return (
     <div className='App'>
-      {/* <GameScreen /> */}
       <Nav />
       <div className='main-content'></div>
       <Switch>
