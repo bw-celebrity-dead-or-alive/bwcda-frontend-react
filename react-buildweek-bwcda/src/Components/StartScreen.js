@@ -1,6 +1,6 @@
 import React from 'react'
-import logo from './logo.svg'
-import HomeButtons from './Components/Buttons'
+import logo from '../logo.svg'
+import Buttons from './Buttons'
 
 const StartScreen = () => {
   return (
@@ -12,7 +12,7 @@ const StartScreen = () => {
           alive?
         </p>
       </header>
-      <HomeButtons />
+      <Buttons origin={'START PLAYING'}/>
     </div>
   )
 }
