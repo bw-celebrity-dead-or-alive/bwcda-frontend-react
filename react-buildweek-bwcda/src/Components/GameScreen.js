@@ -64,10 +64,7 @@ const GameScreen = () => {
       <div>{/*In here we will have the logo that sits on top on the timer button */}</div>
       <div>{" "}{/* Time Bar will go here and will have a useState that tracks the ending of the time */}{" "}</div>
 
-      <CelebCard data={data[id]} />
-
-      {console.log(data[id])}
-
+      {data[id] ? <CelebCard data={data[id]} /> : <div>Loading...</div>}
 
       <button onClick={() => isDead(data[id].death)}>Dead</button>
       <button onClick={() => isAlive(data[id].death)}>Alive</button>
