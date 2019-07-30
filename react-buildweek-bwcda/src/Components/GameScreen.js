@@ -23,7 +23,7 @@ const GameScreen = () => {
   //This fetches the list of celebs
   const [data, setData] = useState([]);
   //This works with ID useState to set the current celebCard to be passed
-  const [currentCard, setCurrentCard] = useState(data);
+  const [currentCard, setCurrentCard] = useState({});
   //This works with SetCurrentCard to identify the current ID needed to be passed
   const [id, setId] = useState(0);
   //Keeps track of Score and resets to zero after game ends.
@@ -62,7 +62,7 @@ const GameScreen = () => {
   }
 
   const setCard = (e) => {
-    setCurrentCard(currentCard[e])
+    setCurrentCard(data[e])
   }
 
   return (
