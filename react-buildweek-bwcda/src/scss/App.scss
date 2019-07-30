@@ -14,6 +14,7 @@ html {
 
 body {
   font-family: 'Ropa Sans', sans-serif;
+  text-align: center;
 }
 
 h1 {
@@ -25,7 +26,7 @@ h2 {
 }
 
 h3 {
-  @include font(1.8rem, 2rem);
+  @include font(2rem, 2rem);
 }
 
 h4 {
@@ -96,13 +97,41 @@ ul {
   }
 
   .start-screen {
-    .App-header {
+    .start-header {
       text-align: center;
       .App-logo {
-        margin: 2rem;
+        margin: 1rem 2rem;
       }
       h2 {
         margin: 3rem 6rem;
+      }
+    }
+    .buttons {
+      @include flex(space-around, center);
+      flex-direction: column;
+      button {
+        background-color: $red;
+        a {
+          color: $white;
+          text-decoration: none;
+        }
+      }
+      button:last-child {
+        background-color: $purple;
+      }
+    }
+  }
+  .end-screen {
+    .end-header {
+      text-align: center;
+      // .App-logo {
+      //   margin: 1rem
+      // }
+      h2 {
+        margin: 0rem 2rem;
+      }
+      h3 {
+        margin: 3rem;
       }
     }
     .buttons {
