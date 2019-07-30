@@ -3,9 +3,8 @@ import CelebCard from './CelebCard';
 import Timebar from './Timebar';
 import axios from "axios";
 
-import EndingScreen from './EndingScreen'
 import { Redirect, Route } from 'react-router-dom'
-
+import logo from '../logo.svg'
 
 const GameScreen = () => {
   //This fetches the list of celebs
@@ -14,10 +13,8 @@ const GameScreen = () => {
   const [id, setId] = useState(0);
   //Keeps track of Score and resets to zero after game ends.
   const [score, setScore] = useState(0)
-
-
-
-  const [state, setState] = useState(false)
+  //sets the state of the timer
+  const [time, setTime] = useState(false)
 
   //Grabs Data from API
   useEffect(() => {
@@ -51,19 +48,9 @@ const GameScreen = () => {
     setId(id + 1)
   }
 
-  // return (<Link to='/end' ></Link>)
-
-
-  // const timeOut = () => {
-  //   setTimeout(() => {
-  //     console.log('is this working')
-  //   }, 3000)
-
-
-
 
   useEffect(() => {
-    const timer = setTimeout(() => setState(true), 3000);
+    const timer = setTimeout(() => setTime(true), 30000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -71,10 +58,12 @@ const GameScreen = () => {
 
     <div>
       <Route path="/play" render={() => (
-        state ? (
+        time ? (
           <Redirect to="/" />
         ) : (
             <div>
+              <img src={logo} className='App-logo' alt='logo' />
+              <h1>Guesses:{id}</h1>
               <div>{/*In here we will have the logo that sits on top on the timer button */}</div>
               <div>{" "}{/* Time Bar will go here and will have a useState that tracks the ending of the time */}{" "}</div>
 
@@ -87,16 +76,7 @@ const GameScreen = () => {
             </div>
           )
       )} />
-
-
-
-
-
-
-
     </div>
-
-
   );
 };
 
