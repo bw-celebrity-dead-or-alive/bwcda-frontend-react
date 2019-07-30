@@ -1,10 +1,55 @@
 @import 'reset';
 @import 'variables';
 @import 'mixins';
+@import url('https://fonts.googleapis.com/css?family=Ropa+Sans&display=swap');
 
 .App {
+  @include flex(space-between, space-between);
+  flex-direction: column-reverse;
   text-align: center;
-  background-color: red;
+  font-family: 'Ropa Sans';
+
+  nav {
+    @include flex(space-around, center);
+    background-color: $red;
+    vertical-align: text-bottom;
+    padding: 1rem;
+    a {
+      text-decoration: none;
+    }
+    a:last-child {
+      color: $white;
+    }
+  }
+
+  .start-screen {
+    .App-header {
+      .App-logo {
+        margin: 1rem;
+      }
+      p {
+        margin: 2rem;
+        font-size: 2rem;
+      }
+    }
+    .buttons {
+      @include flex(space-around, center);
+      flex-direction: column;
+      button {
+        margin: 1rem;
+        padding: 1rem;
+        border-radius: 50px;
+        font-family: 'Ropa Sans';
+        font-size: 1.6rem;
+        background-color: $purple;
+        width: 200px;
+        a {
+          color: $white;
+          text-decoration: none;
+        }
+      }
+    }
+  }
 }
 
 // .App-logo {

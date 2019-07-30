@@ -13,7 +13,7 @@ const Buttons = (props) => {
   }
 
   return (
-    <div>
+    <div className='buttons'>
       <button><Link to='/login' >LOGIN</Link></button>
       <button><Link to='/play' >{buttonText}</Link></button>
       <Route path='/login' render={(props) => (
