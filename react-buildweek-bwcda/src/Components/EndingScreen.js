@@ -2,7 +2,11 @@ import React from 'react'
 import logo from '../logo.svg'
 import Buttons from './Buttons'
 
+
 const EndingScreen = () => {
+  const score = window.localStorage.getItem("HighScore")
+  const guess = window.localStorage.getItem("TotalGuesses")
+
   return (
     <div className='end-screen'>
       <header className='end-header'>
@@ -11,11 +15,11 @@ const EndingScreen = () => {
         <br />
         <h4>You completed the quiz!</h4>
         <br />
-        <h4>CORRECT GUESSES: 7</h4>
-        <h4>TOTAL GUESSES: 23</h4>
-        <h3>SCORE: 7 points</h3>
+        <h4>CORRECT GUESSES: {score}</h4>
+        <h4>TOTAL GUESSES: {guess}</h4>
+        <h3>SCORE: {score}</h3>
         <h4>Enter name to save score</h4>
-        <br/>
+        <br />
         <form type='submit' value='Submit'>
           <label>
             NAME:

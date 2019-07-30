@@ -1,12 +1,18 @@
+//Sort actors with no images
 //Figure out the Logic for randomizing the array of data celebs
 
 import React, { useEffect, useState } from "react";
 import CelebCard from './CelebCard';
+import EndingScreen from './EndingScreen';
 import Timebar from './Timebar';
 import axios from "axios";
 
 import { Redirect, Route } from 'react-router-dom'
 import logo from '../logo.svg'
+
+
+
+
 
 const GameScreen = () => {
   //This fetches the list of celebs
@@ -50,17 +56,24 @@ const GameScreen = () => {
     setId(id + 1)
   }
 
+  const passNum = () => {
+    return score;
+  }
+
   useEffect(() => {
     const timer = setTimeout(() => setTime(true), 30000);
     return () => clearTimeout(timer);
   }, []);
+
+  window.localStorage.setItem("HighScore", JSON.stringify(score))
+  window.localStorage.setItem("TotalGuesses", JSON.stringify(id))
 
   return (
 
     <div>
       <Route path="/play" render={() => (
         time ? (
-          <Redirect to="/end" props={score} />
+          <Redirect to="/end" />
         ) : (
             <div>
               <img src={logo} className='App-logo' alt='logo' />
@@ -74,8 +87,8 @@ const GameScreen = () => {
 
               <button onClick={() => isDead(data.death)}>Dead</button>
               <button onClick={() => isAlive(data.death)}>Alive</button>
-
               <Timebar />
+
             </div>
           )
       )} />
