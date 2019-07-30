@@ -4,7 +4,7 @@ import Buttons from './Buttons'
 
 const StartScreen = () => {
   return (
-    <div>
+    <div className='start-screen'>
       <header className='App-header'>
         <img src={logo} className='App-logo' alt='logo' />
         <p>
