@@ -20,15 +20,16 @@ import Timebar from './Timebar';
 import axios from "axios";
 
 const GameScreen = () => {
+  //This fetches the list of celebs
   const [data, setData] = useState([]);
+  //This works with ID useState to set the current celebCard to be passed
   const [currentCard, setCurrentCard] = useState([]);
+  //This works with SetCurrentCard to identify the current ID needed to be passed
   const [id, setId] = useState(0);
+  //Keeps track of Score and resets to zero after game ends.
+  const [score, setScore] = useState(0)
 
-  // 1st fetch all the celebs we want 
-  // render one after the other to the screen
-  // when one is rendered, fetch his image
-  //put the use effect in here rather than the cardlist
-
+  //Grabs Data from API
   useEffect(() => {
     axios
       .get("https://prod-celebrity-dead-alive.herokuapp.com/api/celebrities/?page=1,limit=14")
@@ -40,49 +41,38 @@ const GameScreen = () => {
       });
   }, []);
 
-  const SetCurrentCard = (id) => {
-    setCurrentCard(currentCard[id])
-  }
-
-  const isAlive = (aliveCheck) => {
-    if(deathCheck > 0){
-      //If this is true then the person is dead and score is added
-    } else {
-      //If the death date is less than 0 then that person is dead and 
+  //Checks for death case on Click
+  const isDead = (deathCheck) => {
+    if (deathCheck > 0) {
+      //true case, reward one point
+      setScore(score + 1)
     }
+    //move to next card
+    setId(id + 1)
   }
 
-   const isDead = (deathCheck) => {
-     if (deathCheck > 0) {
-       //If this is true then the person is dead and score is added
-     } else {
-       //If the death date is less than 0 then that person is dead and 
-     }
-   }
-  
-  return (
-    <div>   
-      <div>{console.log("data out of the function", data.map(e => e.name))}</div>
-      {SetCurrentCard(id)}
-      <CelebCard data={currentCard} />
-      {/* <div>{console.log(data.filter(e => e))}<div/> */}
+  //Checks for Alive case on Click
+  const isAlive = (aliveCheck) => {
+    if (aliveCheck === 0) {
+      //true case, reward one point
+      setScore(score + 1)
+    }
+    //move to next card
+    setId(id + 1)
+  }
 
+  return (
+    <div>
       <div>{/*In here we will have the logo that sits on top on the timer button */}</div>
       <div>{" "}{/* Time Bar will go here and will have a useState that tracks the ending of the time */}{" "}</div>
-      <div>{/* CelebCard */}</div>
-      <div>{/*Buttons for dead or alive*/}</div>
 
-      <button onClick={()=> isDead(currentCard.death)}></button>
-      <button onClick={()=> isAlive(currentCard.death)}></button>
+      <CelebCard data={setCurrentCard(currentCard[id])} />
 
-      <h2>Holding</h2>
-        <img src={img} alt="Testing"/>
-        <button onClick={() => setId(id + 1)}>+1</button>
-        {/* <button onClick={() => setId(id + 1)}><h2>{data.map(e => e.name[id])}</h2></button> */}
-        {/*button above is printing some crazy stuff.*/} 
-      {console.log('data[id]', data[id])}
+      <button onClick={() => isDead(currentCard.death)}></button>
+      <button onClick={() => isAlive(currentCard.death)}></button>
+
       <Timebar />
-      </div>
+    </div>
   );
 };
 
