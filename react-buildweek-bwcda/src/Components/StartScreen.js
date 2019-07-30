@@ -1,6 +1,6 @@
 import React from 'react'
 import logo from '../logo.svg'
-import Buttons from './Buttons'
+import Button from './Button'
 
 const StartScreen = () => {
   return (
@@ -12,7 +12,8 @@ const StartScreen = () => {
           alive?
         </h2>
       </header>
-      <Buttons origin={'START PLAYING'} />
+      <Button buttonText={'LOGIN'} path={'/login'} />
+      <Button buttonText={'START PLAYING'} path={''} />
     </div>
   )
 }
