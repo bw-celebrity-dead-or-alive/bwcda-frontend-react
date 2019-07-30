@@ -3,17 +3,90 @@
 @import 'mixins';
 @import url('https://fonts.googleapis.com/css?family=Ropa+Sans&display=swap');
 
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Ropa Sans', sans-serif;
+}
+
+h1 {
+  @include font(3rem, 3.2rem);
+}
+
+h2 {
+  @include font(2.4rem, 2.6rem);
+}
+
+h3 {
+  @include font(1.8rem, 2rem);
+}
+
+h4 {
+  @include font(1.6rem, 1.8rem);
+}
+
+h5 {
+  @include font(1.4rem, 1.6rem);
+}
+
+h6 {
+  @include font(1.2rem, 1.4rem);
+}
+
+a {
+  font-size: 1.4rem;
+  line-height: 2rem;
+  font-family: 'Ropa Sans', sans-serif;
+  cursor: pointer;
+}
+
+p {
+  font-size: 1.6rem;
+  line-height: 2rem;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+button {
+  padding: 1rem 1.6rem;
+  margin: 1rem;
+  border-radius: 50px;
+  width: 200px;
+  font-weight: 700;
+  border: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
 .App {
-  @include flex(space-between, space-between);
+  @include flex(space-between, center);
   flex-direction: column-reverse;
-  text-align: center;
   font-family: 'Ropa Sans';
+  max-width: 1440px;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
 
   nav {
     @include flex(space-around, center);
     background-color: $red;
     vertical-align: text-bottom;
     padding: 1rem;
+    font-size: 1.2rem;
+    width: 100%;
     a {
       text-decoration: none;
     }
@@ -24,29 +97,26 @@
 
   .start-screen {
     .App-header {
+      text-align: center;
       .App-logo {
-        margin: 1rem;
-      }
-      p {
         margin: 2rem;
-        font-size: 2rem;
+      }
+      h2 {
+        margin: 3rem 6rem;
       }
     }
     .buttons {
       @include flex(space-around, center);
       flex-direction: column;
       button {
-        margin: 1rem;
-        padding: 1rem;
-        border-radius: 50px;
-        font-family: 'Ropa Sans';
-        font-size: 1.6rem;
-        background-color: $purple;
-        width: 200px;
+        background-color: $red;
         a {
           color: $white;
           text-decoration: none;
         }
+      }
+      button:last-child {
+        background-color: $purple;
       }
     }
   }
@@ -56,21 +126,6 @@
 //   animation: App-logo-spin infinite 20s linear;
 //   height: 40vmin;
 //   pointer-events: none;
-// }
-
-// .App-header {
-//   background-color: #282c34;
-//   min-height: 100vh;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   justify-content: center;
-//   font-size: calc(10px + 2vmin);
-//   color: white;
-// }
-
-// .App-link {
-//   color: #61dafb;
 // }
 
 // @keyframes App-logo-spin {
