@@ -14,3 +14,5 @@ const CelebCard = (props) => {
         </div>
     )
 }
+
+export default CelebCard;
