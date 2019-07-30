@@ -6,9 +6,9 @@ const CelebCard = (props) => {
     return (
         <div>
             <img src={props.data.image_url} />
-            <div>{props.data.name}</div>
-            <div>{props.data.info}</div>
-            <div>{props.data.birth}</div>
+            <p>{props.data.name}</p>
+            <p>{props.data.info}</p>
+            <p>{props.data.birth}</p>
         </div>
     )
 }
