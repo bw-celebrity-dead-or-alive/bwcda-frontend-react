@@ -22,8 +22,6 @@ import axios from "axios";
 const GameScreen = () => {
   //This fetches the list of celebs
   const [data, setData] = useState([]);
-  //This works with ID useState to set the current celebCard to be passed
-  const [currentCard, setCurrentCard] = useState(data);
   //This works with SetCurrentCard to identify the current ID needed to be passed
   const [id, setId] = useState(0);
   //Keeps track of Score and resets to zero after game ends.
@@ -61,19 +59,15 @@ const GameScreen = () => {
     setId(id + 1)
   }
 
-  const setCard = (e) => {
-    setCurrentCard(currentCard[e])
-  }
-
   return (
     <div>
       <div>{/*In here we will have the logo that sits on top on the timer button */}</div>
       <div>{" "}{/* Time Bar will go here and will have a useState that tracks the ending of the time */}{" "}</div>
 
-      <CelebCard data={setCard(id)} />
+      {data[id] ? <CelebCard data={data[id]} /> : <div>Loading...</div>}
 
-      <button onClick={() => isDead(currentCard.death)}></button>
-      <button onClick={() => isAlive(currentCard.death)}></button>
+      <button onClick={() => isDead(data[id].death)}>Dead</button>
+      <button onClick={() => isAlive(data[id].death)}>Alive</button>
 
       <Timebar />
     </div>
