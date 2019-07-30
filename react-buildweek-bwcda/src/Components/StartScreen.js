@@ -1,10 +1,10 @@
 import React from 'react'
-import logo from './logo.svg'
-import HomeButtons from './Components/Buttons'
+import logo from '../logo.svg'
+import Buttons from './Buttons'
 
 const StartScreen = () => {
   return (
-    <div>
+    <div className='start-screen'>
       <header className='App-header'>
         <img src={logo} className='App-logo' alt='logo' />
         <p>
@@ -12,7 +12,7 @@ const StartScreen = () => {
           alive?
         </p>
       </header>
-      <HomeButtons />
+      <Buttons origin={'START PLAYING'}/>
     </div>
   )
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route, Link } from 'react-router-dom'
 import App from '../App'
-import Login from '../Login'
+import Login from './Login'
 
 const Nav = () => {
   return (
