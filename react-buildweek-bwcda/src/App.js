@@ -6,7 +6,7 @@ import StartScreen from './Components/StartScreen';
 import GameScreen from './Components/GameScreen'
 import EndingScreen from './Components/EndingScreen'
 import Err404 from './Components/Err404'
-import './App.css'
+import '../src/scss/App.scss'
 
 export default function App() {
   return (
