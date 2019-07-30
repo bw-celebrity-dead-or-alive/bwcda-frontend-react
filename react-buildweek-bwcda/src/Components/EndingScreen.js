@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import logo from '../logo.svg'
-import Buttons from './Buttons'
+import Button from './Button'
+import NameForm from './NameForm'
 
 
 const EndingScreen = () => {
@@ -27,7 +28,7 @@ const EndingScreen = () => {
           </label>
         </form>
       </header>
-      <Buttons origin={'START PLAYING'} />
+      <Button buttonText={'PLAY AGAIN'} path={''} />
     </div>
   )
 }
