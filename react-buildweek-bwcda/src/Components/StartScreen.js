@@ -12,7 +12,7 @@ const StartScreen = () => {
           alive?
         </h2>
       </header>
-      <Buttons origin={'START PLAYING'}/>
+      <Buttons origin={'START PLAYING'} />
     </div>
   )
 }

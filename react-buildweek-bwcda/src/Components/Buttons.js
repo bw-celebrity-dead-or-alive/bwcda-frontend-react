@@ -16,12 +16,6 @@ const Buttons = (props) => {
     <div className='buttons'>
       <button><Link to='/login' >LOGIN</Link></button>
       <button><Link to='/play' >{buttonText}</Link></button>
-      <Route path='/login' render={(props) => (
-          <Login {...props} />
-        )}/>
-      <Route path='/play' render={(props) => (
-          <GameScreen {...props} buttonText={buttonText} />
-        )}/>
     </div>
   )
 }
