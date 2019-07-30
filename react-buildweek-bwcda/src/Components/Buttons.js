@@ -1,19 +1,27 @@
 import React from 'react'
 import { Route, Link } from 'react-router-dom'
 import EndingScreen from './EndingScreen'
-import App from '../App'
+import StartScreen from './StartScreen'
 import Login from './Login'
 
+const Buttons = (buttonText) => {
 
-const Buttons = () => {
-  // TODO: add logic to change link destination dynamic
+  let button = StartScreen
+  let slug = 'start'
+
+  if (buttonText === 'START PLAYING') {
+    button = StartScreen
+  } else {
+    button = EndingScreen
+    slug = 'end'
+  }
 
   return (
     <div>
       <button><Link to={Login} >LOGIN</Link></button>
-      <button><Link to={App}>PLAY GAME</Link></button>
+      <button><Link to={button} >{buttonText}</Link></button>
       <Route path='/login' />
-      <Route path='/start' />
+      <Route path={`/${slug}`} />
     </div>
   )
 }
