@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import logo from '../logo.svg'
-import Buttons from './Buttons'
+import Button from './Button'
+import NameForm from './NameForm'
 
 const EndingScreen = () => {
+
   return (
     <div className='end-screen'>
       <header className='end-header'>
@@ -14,16 +16,11 @@ const EndingScreen = () => {
         <h4>CORRECT GUESSES: 7</h4>
         <h4>TOTAL GUESSES: 23</h4>
         <h3>SCORE: 7 points</h3>
-        <h4>Enter name to save score</h4>
-        <br/>
-        <form type='submit' value='Submit'>
-          <label>
-            NAME:
-            <input type='text' placeholder='name' />
-          </label>
-        </form>
+        <h5>Enter name to save score:</h5>
+        <br />
+        <NameForm />
       </header>
-      <Buttons origin={'START PLAYING'} />
+      <Button buttonText={'PLAY AGAIN'} path={''} />
     </div>
   )
 }
