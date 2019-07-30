@@ -7,10 +7,10 @@ const StartScreen = () => {
     <div className='start-screen'>
       <header className='App-header'>
         <img src={logo} className='App-logo' alt='logo' />
-        <p>
+        <h2>
           Have you ever had an argument about whether a celebrity is dead or
           alive?
-        </p>
+        </h2>
       </header>
       <Buttons origin={'START PLAYING'} />
     </div>

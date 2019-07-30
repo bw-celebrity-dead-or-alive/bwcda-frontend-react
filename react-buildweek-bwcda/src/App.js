@@ -12,7 +12,6 @@ export default function App() {
   return (
     <div className='App'>
       <Nav />
-      <div className='main-content'></div>
       <Switch>
         <Route exact path='/' component={StartScreen} />
         <Route path='/play' component={GameScreen} />
