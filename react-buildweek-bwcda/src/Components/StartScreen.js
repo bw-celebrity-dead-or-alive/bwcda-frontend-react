@@ -13,7 +13,7 @@ const StartScreen = () => {
         </h2>
       </header>
       <Button buttonText={'LOGIN'} path={'/login'} />
-      <Button buttonText={'START PLAYING'} path={''} />
+      <Button buttonText={'START PLAYING'} path={'play'} />
     </div>
   )
 }
