@@ -2,13 +2,13 @@
 
 //Just a concept
 import React from 'react'
-// import transition from '..//scss/transition.scss'
+import transition from '..//scss/transition.scss'
 
 const Timebar = () => {
   return (
-    <div class="container">
-      <div class="progress progress-striped">
-        <div class="progress-bar">
+    <div className="container">
+      <div className="progress progress-striped">
+        <div className="progress-bar">
         </div>
       </div>
     </div>
