@@ -1,18 +1,19 @@
 import React from 'react'
 import logo from '../logo.svg'
-import Buttons from './Buttons'
+import Button from './Button'
 
 const StartScreen = () => {
   return (
     <div className='start-screen'>
-      <header className='App-header'>
+      <header className='start-header'>
         <img src={logo} className='App-logo' alt='logo' />
-        <p>
+        <h2>
           Have you ever had an argument about whether a celebrity is dead or
           alive?
-        </p>
+        </h2>
       </header>
-      <Buttons origin={'START PLAYING'}/>
+      <Button buttonText={'LOGIN'} path={'/login'} />
+      <Button buttonText={'START PLAYING'} path={''} />
     </div>
   )
 }

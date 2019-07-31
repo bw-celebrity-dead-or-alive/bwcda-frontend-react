@@ -5,12 +5,10 @@ import React from "react";
 const CelebCard = (props) => {
     return (
         <div>
-            <div>{props.data.id}</div>
-            <div>{props.data.name}</div>
-            <div>{props.data.info}</div>
-            <div>{props.data.image_url}</div>
-            <div>{props.data.birth}</div>
-            <div>{props.data.death}</div>
+            <img src={props.data.image_url} />
+            <p>{props.data.name}</p>
+            <p>{props.data.info}</p>
+            <p>{props.data.birth}</p>
         </div>
     )
 }
