@@ -1,23 +1,28 @@
-//Sort actors with no images
-//Figure out the Logic for randomizing the array of data celebs
+//Tim
+//Filter out 404 celeb pages
+//Login screen
+
+//Kristin
+//High score screen
+//User ONLY high Score screen
+
+//Animations
+
 
 import React, { useEffect, useState } from "react";
 import { Redirect, Route } from 'react-router-dom'
 import axios from "axios";
 import CelebCard from './CelebCard';
-import EndingScreen from './EndingScreen';
 import Timebar from './Timebar';
 
 const GameScreen = () => {
   //This fetches the list of celebs
-  const [data, setData] = useState();
+  const [data, setData] = useState({});
   //This works with SetCurrentCard to identify the current ID needed to be passed
-  const [id, setId] = useState(Math.floor((Math.random() * 100) + 1));
+  const [id, setId] = useState(Math.floor((Math.random() * 300) + 1));
   //Keeps track of Score and resets to zero after game ends.
   const [score, setScore] = useState(0)
-
   const [guesses, setGuesses] = useState(0)
-
   //sets the state of the timer
   const [time, setTime] = useState(false)
 
@@ -33,15 +38,14 @@ const GameScreen = () => {
       });
   }, [id]);
 
-
   //Checks for death case on Click
   const isDead = (deathCheck) => {
     if (deathCheck > 0) {
       //true case, reward one point
       setScore(score + 1)
     }
-    //move to next card
-    setId(Math.floor((Math.random() * 100) + 1))
+    //Move to next card
+    setId(Math.floor((Math.random() * 300) + 1))
     setGuesses(guesses + 1)
   }
 
@@ -52,9 +56,11 @@ const GameScreen = () => {
       setScore(score + 1)
     }
     //move to next card
-    setId(Math.floor((Math.random() * 100) + 1))
+    setId(Math.floor((Math.random() * 300) + 1))
     setGuesses(guesses + 1)
   }
+
+
 
   useEffect(() => {
     const timer = setTimeout(() => setTime(true), 30000);
