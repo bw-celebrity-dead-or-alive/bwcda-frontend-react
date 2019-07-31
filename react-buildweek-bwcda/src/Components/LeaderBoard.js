@@ -18,7 +18,7 @@ const LeaderBoard = () => {
         setHighScores(highScoresArr)
       })
       .catch((err) => {
-        return 'Failed to load leaderboard', err
+        console.log('Failed to load leaderboard', err)
       })
   }, [])
 
