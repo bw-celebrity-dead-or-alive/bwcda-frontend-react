@@ -56,17 +56,11 @@ p {
   line-height: 2rem;
 }
 
-img {
-  max-height: 295px;
-  height: auto;
-}
-
 button {
   padding: 1rem 1.6rem;
   margin: 1rem;
   border-radius: 50px;
   width: 200px;
-  font-weight: 700;
   border: none;
 }
 
@@ -74,9 +68,11 @@ button {
   @include flex(space-between, center);
   flex-direction: column-reverse;
   font-family: 'Ropa Sans';
-	height: 100vh;
+  height: 100vh;
   min-height: 100%;
+  text-align: center;
 
+  // NAV MOBILE
   nav {
     @include flex(space-around, center);
     background-color: $red;
@@ -91,76 +87,109 @@ button {
       color: $white;
     }
   }
-
-  .start-screen {
-    .start-header {
-      text-align: center;
-      .App-logo {
-        margin: 1rem 2rem;
+  .content {
+    img {
+      padding: 1rem;
+      max-height: 295px;
+      height: auto;
+    }
+    // START SCREEN MOBILE
+    .start-screen {
+      .start-content {
+        text-align: center;
+        .App-logo {
+          margin: 1rem 2rem;
+        }
+        h2 {
+          margin: 3rem 6rem;
+        }
       }
-      h2 {
-        margin: 3rem 6rem;
+      .buttons {
+        @include flex(space-around, center);
+        flex-direction: column;
+        button {
+          background-color: $red;
+          a {
+            color: $white;
+            text-decoration: none;
+          }
+        }
+        button:last-child {
+          background-color: $purple;
+        }
       }
     }
-    .buttons {
-      @include flex(space-around, center);
-      flex-direction: column;
+
+    // PLAY SCREEN MOBILE
+    .play-screen {
+      h3 {
+        line-height: 2.4rem;
+        text-transform: uppercase;
+        margin: .3rem;
+      }
+      h4 {
+        margin: .3rem;
+      }
+      .container {
+        margin: 1.6rem 0;
+      }
+    }
+
+    // END SCREEN MOBILE
+    .end-screen {
+      .end-content {
+        h2 {
+          margin: 0rem 2rem;
+        }
+        h3 {
+          margin: 3rem 2rem;
+          background-color: $lavender;
+          padding: 1rem;
+        }
+        h4 {
+          padding: 0.3rem;
+        }
+        form {
+          @include flex(center, center);
+          flex-direction: column;
+          label {
+            @include flex(center, flex-start);
+            flex-direction: column;
+            padding: 1rem 0;
+            font-size: 1.2rem;
+            line-height: 1.6rem;
+            text-transform: uppercase;
+
+            input {
+              padding: 0.6rem;
+              border: 1px solid $grey;
+              border-radius: 6px;
+            }
+          }
+          button {
+            background-color: $red;
+            margin-bottom: 2rem;
+            a {
+              color: $white;
+              text-decoration: none;
+            }
+          }
+        }
+      }
       button {
-        background-color: $red;
+        background-color: $purple;
         a {
           color: $white;
           text-decoration: none;
         }
       }
-      button:last-child {
-        background-color: $purple;
-      }
-    }
-  }
-  .end-screen {
-    .end-header {
-      text-align: center;
-      // .App-logo {
-      //   margin: 1rem
-      // }
-      h2 {
-        margin: 0rem 2rem;
-      }
-      h3 {
-        margin: 2rem;
-        background-color: $lavender;
-        padding: 1rem;
-      }
-      h4 {
-        padding: 0.3rem;
-      }
-      form {
-        @include flex(center, center);
-        flex-direction: column;
-        label {
-          font-size: 1.8rem;
-          padding: 1rem;
-
-          input {
-            padding: 0.6rem;
-            border: 1px solid $grey;
-            border-radius: 6px;
-          }
-        }
-      }
-    }
-    button {
-      background-color: $red;
-      a {
-        color: $white;
-        text-decoration: none;
-      }
-    }
-    button:last-child {
-      background-color: $purple;
     }
   }
 }
+
+// @media (min-width: $standard) {
+
+// }
 
 // .App-logo {
 //   animation: App-logo-spin infinite 20s linear;
