@@ -1,13 +1,11 @@
 //Tim
-//Filter out 404 celeb pages
 //Login screen
 
 //Kristin
-//High score screen
 //User ONLY high Score screen
 
+//Jeff
 //Animations
-
 
 import React, { useEffect, useState } from "react";
 import { Redirect, Route } from 'react-router-dom'
@@ -16,10 +14,15 @@ import CelebCard from './CelebCard';
 import Timebar from './Timebar';
 
 const GameScreen = () => {
+  const randomID = () => {
+    return Math.floor((Math.random() * 300) + 1)
+  }
+
+
   //This fetches the list of celebs
   const [data, setData] = useState({});
   //This works with SetCurrentCard to identify the current ID needed to be passed
-  const [id, setId] = useState(Math.floor((Math.random() * 300) + 1));
+  const [id, setId] = useState(randomID());
   //Keeps track of Score and resets to zero after game ends.
   const [score, setScore] = useState(0)
   const [guesses, setGuesses] = useState(0)
@@ -31,12 +34,21 @@ const GameScreen = () => {
     axios
       .get(`https://prod-celebrity-dead-alive.herokuapp.com/api/celebrities/${id}`)
       .then(e => {
-        setData(e.data);
+        console.log(e.status)
+        e.status ? setData(e.data) : console.log("We are Here damnit")
       })
       .catch(err => {
-        return ("Something isnt working", err);
+        console.log("Something isnt working", err)
+        setId(randomID());
       });
   }, [id]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setTime(true), 30000);
+    return () => clearTimeout(timer);
+  }, []);
+
+
 
   //Checks for death case on Click
   const isDead = (deathCheck) => {
@@ -45,7 +57,7 @@ const GameScreen = () => {
       setScore(score + 1)
     }
     //Move to next card
-    setId(Math.floor((Math.random() * 300) + 1))
+    setId(randomID())
     setGuesses(guesses + 1)
   }
 
@@ -56,16 +68,11 @@ const GameScreen = () => {
       setScore(score + 1)
     }
     //move to next card
-    setId(Math.floor((Math.random() * 300) + 1))
+    setId(randomID())
     setGuesses(guesses + 1)
   }
 
 
-
-  useEffect(() => {
-    const timer = setTimeout(() => setTime(true), 30000);
-    return () => clearTimeout(timer);
-  }, []);
 
   window.localStorage.setItem("HighScore", JSON.stringify(score))
   window.localStorage.setItem("TotalGuesses", JSON.stringify(guesses))
@@ -79,10 +86,12 @@ const GameScreen = () => {
             <div className='play-content'>
               <div className='score-status'>
                 <h3>Guesses:&nbsp;&nbsp; {guesses}</h3>
-                <h3>Score:&nbsp;&nbsp; {score}</h3>
+                <h3>Correct Guesses:&nbsp;&nbsp; {score}</h3>
+
               </div>
               <Timebar />
               {data ? <CelebCard data={data} /> : <div>Loading...</div>}
+
               <button onClick={() => isDead(data.death)}>Dead</button>
               <button onClick={() => isAlive(data.death)}>Alive</button>
             </div>
