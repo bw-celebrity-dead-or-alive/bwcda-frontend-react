@@ -68,18 +68,15 @@ const GameScreen = () => {
         time ? (
           <Redirect to="/end" />
         ) : (
-            <div>
-              <h3>Guesses: {id}</h3>
-              <h3>Score: {score}</h3>
-
-              <div>{/*In here we will have the logo that sits on top on the timer button */}</div>
-              <div>{" "}{/* Time Bar will go here and will have a useState that tracks the ending of the time */}{" "}</div>
-
+            <div className='play-content'>
+              <div className='score-status'>
+                <h3>Guesses:&nbsp;&nbsp; {id}</h3>
+                <h3>Score:&nbsp;&nbsp; {score}</h3>
+              </div>
+              <Timebar />
               {data ? <CelebCard data={data} /> : <div>Loading...</div>}
-
               <button onClick={() => isDead(data.death)}>Dead</button>
               <button onClick={() => isAlive(data.death)}>Alive</button>
-              <Timebar />
             </div>
           )
       )} />
