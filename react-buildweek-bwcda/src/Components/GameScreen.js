@@ -12,7 +12,7 @@ const GameScreen = () => {
   //This fetches the list of celebs
   const [data, setData] = useState();
   //This works with SetCurrentCard to identify the current ID needed to be passed
-  const [id, setId] = useState(0);
+  const [id, setId] = useState(Math.floor((Math.random() * 100) + 1));
   //Keeps track of Score and resets to zero after game ends.
   const [score, setScore] = useState(0)
   //sets the state of the timer
@@ -30,6 +30,7 @@ const GameScreen = () => {
       });
   }, [id]);
 
+
   //Checks for death case on Click
   const isDead = (deathCheck) => {
     if (deathCheck > 0) {
@@ -37,7 +38,7 @@ const GameScreen = () => {
       setScore(score + 1)
     }
     //move to next card
-    setId(id + 1)
+    setId(Math.floor((Math.random() * 100) + 1))
   }
 
   //Checks for Alive case on Click
@@ -47,7 +48,7 @@ const GameScreen = () => {
       setScore(score + 1)
     }
     //move to next card
-    setId(id + 1)
+    setId(Math.floor((Math.random() * 100) + 1))
   }
 
   const passNum = () => {
