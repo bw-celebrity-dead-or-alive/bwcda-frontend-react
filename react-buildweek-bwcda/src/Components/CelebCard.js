@@ -4,11 +4,11 @@ import React from "react";
 
 const CelebCard = (props) => {
     return (
-        <div>
+        <div className='celeb-card'>
             <img src={props.data.image_url} />
-            <p>{props.data.name}</p>
-            <p>{props.data.info}</p>
-            <p>{props.data.birth}</p>
+            <h3>{props.data.name}</h3>
+            <h4>{props.data.info}</h4>
+            <h5>Birth Year: {props.data.birth}</h5>
         </div>
     )
 }
