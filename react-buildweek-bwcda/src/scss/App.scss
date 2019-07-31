@@ -273,6 +273,63 @@ button:hover {
         }
       }
     }
+    // USER SCORES MOBILE
+    .userscores-screen {
+      .userscores-content {
+        h1 {
+          font-family: 'Bowlby One', sans-serif;
+          padding: 1rem;
+          color: $red;
+        }
+        .grid-titles {
+          display: grid;
+          grid-template-columns: 1fr 3fr 1fr;
+          h2 {
+            padding: 1.6rem 0;
+            border-bottom: 1px solid $grey;
+            margin-bottom: 1rem;
+          }
+        }
+        .grid-container {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+          .rank-column {
+            h3 {
+              padding: 0.8rem 0;
+            }
+            h3:nth-child(even) {
+              background-color: $purple-opacity;
+            }
+          }
+          .score-column {
+            h3 {
+              padding: 0.8rem 0;
+            }
+            h3:nth-child(even) {
+              background-color: $purple-opacity;
+            }
+          }
+          .date-column {
+            h3 {
+              padding: 0.8rem 0;
+            }
+            h3:nth-child(even) {
+              background-color: $purple-opacity;
+            }
+          }
+        }
+        h4 {
+          padding: 2rem;
+        }
+        button {
+          background-color: $purple;
+          a {
+            color: $white;
+            text-decoration: none;
+          }
+        }
+      }
+    }
   }
 }
 
@@ -289,7 +346,6 @@ button:hover {
     .content {
       .App-logo {
         margin: 2rem;
-        // height: auto;
       }
 
       // START SCREEN DESKTOP
