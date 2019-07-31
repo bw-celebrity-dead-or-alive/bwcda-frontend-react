@@ -1,19 +1,17 @@
 import React from 'react'
-import logo from '../logo.svg'
 import Button from './Button'
 
 const StartScreen = () => {
   return (
     <div className='start-screen'>
-      <header className='start-header'>
-        <img src={logo} className='App-logo' alt='logo' />
+      <header className='start-content'>
         <h2>
           Have you ever had an argument about whether a celebrity is dead or
           alive?
         </h2>
       </header>
-      <Button buttonText={'LOGIN'} path={'/login'} />
-      <Button buttonText={'START PLAYING'} path={'play'} />
+      <Button buttonText={'LOGIN'} pathName={'login'} />
+      <Button buttonText={'START PLAYING'} pathName={'play'} />
     </div>
   )
 }

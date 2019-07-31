@@ -1,19 +1,17 @@
 import React from 'react'
 import { Route, Link } from 'react-router-dom'
 import App from '../App'
-import Login from './Login'
+import LeaderBoard from './LeaderBoard';
 
 const Nav = () => {
   return (
     <nav>
-      <Link to=''>
-        <p>RESET</p>
+      <Link to='/'>
+        <h3>RESET</h3>
       </Link>
-      <Link to=''>
-        <p>LOGIN</p>
+      <Link to='/leaderboard'>
+        <h3>HALL OF FAME</h3>
       </Link>
-      <Route path='/start' component={App} />
-      <Route path='/login' component={Login} />
     </nav>
   )
 }

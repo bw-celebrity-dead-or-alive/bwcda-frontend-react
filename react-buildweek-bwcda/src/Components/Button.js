@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom'
 
 const Button = (props) => {
   let text = props.buttonText
-  let path = props.path
+  let path = props.pathName
 
   return (
-    <div className='buttons'>
+    <div className='button'>
       <button><Link to={`/${path}`} >{text}</Link></button>
     </div>
   )
