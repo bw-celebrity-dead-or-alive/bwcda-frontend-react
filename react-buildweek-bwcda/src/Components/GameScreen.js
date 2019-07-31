@@ -15,6 +15,9 @@ const GameScreen = () => {
   const [id, setId] = useState(Math.floor((Math.random() * 100) + 1));
   //Keeps track of Score and resets to zero after game ends.
   const [score, setScore] = useState(0)
+
+  const [guesses, setGuesses] = useState(0)
+
   //sets the state of the timer
   const [time, setTime] = useState(false)
 
@@ -39,6 +42,7 @@ const GameScreen = () => {
     }
     //move to next card
     setId(Math.floor((Math.random() * 100) + 1))
+    setGuesses(guesses + 1)
   }
 
   //Checks for Alive case on Click
@@ -49,10 +53,7 @@ const GameScreen = () => {
     }
     //move to next card
     setId(Math.floor((Math.random() * 100) + 1))
-  }
-
-  const passNum = () => {
-    return score;
+    setGuesses(guesses + 1)
   }
 
   useEffect(() => {
@@ -61,7 +62,7 @@ const GameScreen = () => {
   }, []);
 
   window.localStorage.setItem("HighScore", JSON.stringify(score))
-  window.localStorage.setItem("TotalGuesses", JSON.stringify(id))
+  window.localStorage.setItem("TotalGuesses", JSON.stringify(guesses))
 
   return (
     <div className='play-screen'>
@@ -71,7 +72,7 @@ const GameScreen = () => {
         ) : (
             <div className='play-content'>
               <div className='score-status'>
-                <h3>Guesses:&nbsp;&nbsp; {id}</h3>
+                <h3>Guesses:&nbsp;&nbsp; {guesses}</h3>
                 <h3>Score:&nbsp;&nbsp; {score}</h3>
               </div>
               <Timebar />
