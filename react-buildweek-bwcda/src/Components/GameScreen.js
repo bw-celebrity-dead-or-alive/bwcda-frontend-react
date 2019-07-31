@@ -2,17 +2,11 @@
 //Figure out the Logic for randomizing the array of data celebs
 
 import React, { useEffect, useState } from "react";
+import { Redirect, Route } from 'react-router-dom'
+import axios from "axios";
 import CelebCard from './CelebCard';
 import EndingScreen from './EndingScreen';
 import Timebar from './Timebar';
-import axios from "axios";
-
-import { Redirect, Route } from 'react-router-dom'
-import logo from '../logo.svg'
-
-
-
-
 
 const GameScreen = () => {
   //This fetches the list of celebs
@@ -69,26 +63,20 @@ const GameScreen = () => {
   window.localStorage.setItem("TotalGuesses", JSON.stringify(id))
 
   return (
-
-    <div>
+    <div className='play-screen'>
       <Route path="/play" render={() => (
         time ? (
           <Redirect to="/end" />
         ) : (
-            <div>
-              <img src={logo} className='App-logo' alt='logo' />
-              <h1>Guesses:{id}</h1>
-              <h1>Score:{score}</h1>
-
-              <div>{/*In here we will have the logo that sits on top on the timer button */}</div>
-              <div>{" "}{/* Time Bar will go here and will have a useState that tracks the ending of the time */}{" "}</div>
-
+            <div className='play-content'>
+              <div className='score-status'>
+                <h3>Guesses:&nbsp;&nbsp; {id}</h3>
+                <h3>Score:&nbsp;&nbsp; {score}</h3>
+              </div>
+              <Timebar />
               {data ? <CelebCard data={data} /> : <div>Loading...</div>}
-
               <button onClick={() => isDead(data.death)}>Dead</button>
               <button onClick={() => isAlive(data.death)}>Alive</button>
-              <Timebar />
-
             </div>
           )
       )} />
