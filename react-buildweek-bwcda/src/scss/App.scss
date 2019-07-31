@@ -236,12 +236,29 @@ button:hover {
         .grid-container {
           display: grid;
           grid-template-columns: 1fr 3fr 1fr;
-          grid-template-rows: repeat(11, 1fr);
-          h3 {
-            padding: .8rem 0;
+          .rank-column {
+            h3 {
+              padding: 0.8rem 0;
+            }
+            h3:nth-child(even) {
+              background-color: $red-opacity;
+            }
           }
-          .row2, .row4, .row6, .row8, .row10 {
-            background-color: $red-opacity;
+          .name-column {
+            h3 {
+              padding: 0.8rem 0;
+            }
+            h3:nth-child(even) {
+              background-color: $red-opacity;
+            }
+          }
+          .score-column {
+            h3 {
+              padding: 0.8rem 0;
+            }
+            h3:nth-child(even) {
+              background-color: $red-opacity;
+            }
           }
         }
         h4 {
