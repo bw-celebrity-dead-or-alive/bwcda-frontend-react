@@ -17,7 +17,7 @@ const LeaderBoard = () => {
         setHighScores(highScoresArr)
       })
       .catch((err) => {
-        return 'Failed to load leaderboard', err
+        return ('Failed to load leaderboard', err)
       })
   }, [])
 
@@ -47,7 +47,7 @@ const LeaderBoard = () => {
             {highScores.map((person) => (
               <h3 key={person.id}>{`${person.firstName} ${
                 person.lastName
-              }`}</h3>
+                }`}</h3>
             ))}
           </div>
           <div className='score-column'>
