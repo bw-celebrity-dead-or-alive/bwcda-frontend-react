@@ -4,12 +4,12 @@ import Button from './Button'
 
 const LeaderBoard = () => {
   const [highScores, setHighScores] = useState([])
+  const [loggedIn, setLoggedIn] = useState(false)
 
   useEffect(() => {
     axios
       .get('https://prod-celebrity-dead-alive.herokuapp.com/api/leaderboard/')
       .then((res) => {
-        // console.log('res.data', res)
         const highScoresArr = res.data
           .sort((a, b) => {
             return b.score - a.score
@@ -28,9 +28,9 @@ const LeaderBoard = () => {
         <header className='leaderboard-content'>
           <h1>HALL OF FAME</h1>
           <div className='grid-titles'>
-            <h2 className='title-rank'>RANK</h2>
-            <h2 className='name-rank'>NAME</h2>
-            <h2 className='score-rank'>SCORE</h2>
+            <h2>RANK</h2>
+            <h2>NAME</h2>
+            <h2>SCORE</h2>
           </div>
           <div className='grid-container'>
             <div className='rank-column'>
