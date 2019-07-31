@@ -11,7 +11,6 @@ const NameForm = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     setPlayerName({firstname: '', lastname:''})
-    console.log(playerName)
     alert(`Thanks ${playerName.firstname}! Your score has been saved!`)
     // history.push('/halloffame')
   }
@@ -37,7 +36,6 @@ const NameForm = (props) => {
             onChange={handleChange}
           />
         </label>
-        {/* <button type='submit'>SUBMIT</button> */}
         <Button type='submit' buttonText={'SUBMIT'} />
       </form>
     </div>

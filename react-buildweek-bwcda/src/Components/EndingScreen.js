@@ -23,7 +23,7 @@ const EndingScreen = () => {
         <br />
         <NameForm />
       </header>
-      <Button buttonText={'PLAY AGAIN'} path={''} />
+      <Button buttonText={'PLAY AGAIN'} pathName={'play'} />
     </div>
   )
 }
