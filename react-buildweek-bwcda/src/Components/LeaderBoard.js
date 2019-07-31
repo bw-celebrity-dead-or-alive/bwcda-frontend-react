@@ -34,16 +34,7 @@ const LeaderBoard = () => {
           </div>
           <div className='grid-container'>
             <div className='rank-column'>
-              <h3 className='row1'>1</h3>
-              <h3 className='row2'>2</h3>
-              <h3 className='row3'>3</h3>
-              <h3 className='row4'>4</h3>
-              <h3 className='row5'>5</h3>
-              <h3 className='row6'>6</h3>
-              <h3 className='row7'>7</h3>
-              <h3 className='row8'>8</h3>
-              <h3 className='row9'>9</h3>
-              <h3 className='row10'>10</h3>
+              {highScores.map((user, i) => <h3 key={user.id}>{i+1}</h3>)}
             </div>
             <div className='name-column'>
               {highScores.map((person) => (
