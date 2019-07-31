@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import logo from '../logo.svg'
 import Button from './Button'
 import NameForm from './NameForm'
@@ -21,12 +21,7 @@ const EndingScreen = () => {
         <h3>SCORE: {score}</h3>
         <h4>Enter name to save score</h4>
         <br />
-        <form type='submit' value='Submit'>
-          <label>
-            NAME:
-            <input type='text' placeholder='name' />
-          </label>
-        </form>
+        <NameForm />
       </header>
       <Button buttonText={'PLAY AGAIN'} path={''} />
     </div>
