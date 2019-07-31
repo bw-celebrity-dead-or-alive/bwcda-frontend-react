@@ -5,6 +5,7 @@ import Nav from './Components/Nav'
 import StartScreen from './Components/StartScreen'
 import GameScreen from './Components/GameScreen'
 import EndingScreen from './Components/EndingScreen'
+import LeaderBoard from './Components/LeaderBoard'
 import Login from './Components/Login'
 import Err404 from './Components/Err404'
 import logo from './logo.svg'
@@ -20,6 +21,7 @@ export default function App() {
           <Route exact path='/' component={StartScreen} />
           <Route path='/play' component={GameScreen} />
           <Route path='/end' component={EndingScreen} />
+          <Route path='/leaderboard' component={LeaderBoard} />
           <Route path='/login' component={Login} />
           <Route component={Err404} />
         </Switch>
