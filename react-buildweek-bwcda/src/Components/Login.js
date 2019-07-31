@@ -1,20 +1,12 @@
 import React, { useState } from "react";
 import Button from './Button'
-import NameForm from './NameForm'
-
-
-
-
 
 const LoginScreen = () => {
-
   const [loginCred, setloginCred] = useState({ username: '', password: '' })
-
 
   const handleChange = (e) => {
     setloginCred({ ...loginCred, [e.target.name]: e.target.value })
   }
-
 
   return (
     <div className='end-screen'>
