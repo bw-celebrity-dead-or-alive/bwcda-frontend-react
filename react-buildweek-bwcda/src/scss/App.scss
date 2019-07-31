@@ -1,18 +1,14 @@
 @import 'reset';
 @import 'variables';
 @import 'mixins';
-@import url('https://fonts.googleapis.com/css?family=Ropa+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Bowlby+One|Ropa+Sans&display=swap');
 
 * {
   box-sizing: border-box;
-  scroll-behavior: smooth;
 }
 
 html {
   font-size: 62.5%;
-  width: 100%;
-  height: 100vh;
-  margin: 0 auto;
 }
 
 body {
@@ -33,7 +29,7 @@ h3 {
 }
 
 h4 {
-  @include font(1.6rem, 1.8rem);
+  @include font(1.8rem, 1.8rem);
 }
 
 h5 {
@@ -46,7 +42,6 @@ h6 {
 
 a {
   font-size: 1.4rem;
-  line-height: 2rem;
   font-family: 'Ropa Sans', sans-serif;
   cursor: pointer;
 }
@@ -62,15 +57,24 @@ button {
   border-radius: 50px;
   width: 200px;
   border: none;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-family: 'Ropa Sans', sans-serif;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+button:hover {
+  box-shadow: 0 0 3px 3px $purple-opacity;
 }
 
 .App {
   @include flex(space-between, center);
   flex-direction: column-reverse;
-  font-family: 'Ropa Sans';
   height: 100vh;
   min-height: 100%;
   text-align: center;
+  font-family: 'Ropa Sans';
 
   // NAV MOBILE
   nav {
@@ -81,30 +85,25 @@ button {
     font-size: 1.2rem;
     width: 100%;
     a {
-      text-decoration: none;
-    }
-    a:last-child {
       color: $white;
+      text-decoration: none;
     }
   }
   .content {
-    img {
-      padding: 1rem;
-      max-height: 295px;
+    .App-logo {
+      margin: 1rem;
       height: auto;
     }
+
     // START SCREEN MOBILE
     .start-screen {
       .start-content {
         text-align: center;
-        .App-logo {
-          margin: 1rem 2rem;
-        }
         h2 {
           margin: 3rem 6rem;
         }
       }
-      .buttons {
+      .button {
         @include flex(space-around, center);
         flex-direction: column;
         button {
@@ -114,7 +113,9 @@ button {
             text-decoration: none;
           }
         }
-        button:last-child {
+      }
+      .button:last-child {
+        button {
           background-color: $purple;
         }
       }
@@ -122,22 +123,51 @@ button {
 
     // PLAY SCREEN MOBILE
     .play-screen {
-      h3 {
-        line-height: 2.4rem;
-        text-transform: uppercase;
-        margin: .3rem;
-      }
-      h4 {
-        margin: .3rem;
-      }
-      .container {
-        margin: 1.6rem 0;
+      .play-content {
+        .score-status {
+          @include flex(center, space-around);
+          h3 {
+            line-height: 2.4rem;
+            text-transform: uppercase;
+            margin: 0 2rem;
+          }
+        }
+        .container {
+          margin: 1.6rem 0;
+        }
+        .celeb-card {
+          padding-bottom: 1rem;
+          img {
+            margin: 1rem;
+            max-height: 295px;
+            box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.2);
+          }
+          h3 {
+            margin: 1.4rem 0;
+          }
+          h4 {
+            margin: 0.3rem;
+          }
+        }
+        button {
+          background-color: $purple;
+          color: $white;
+          text-transform: uppercase;
+          text-decoration: none;
+        }
+        button:hover {
+          box-shadow: inset 0 0 3px 3px $purple;
+          background-color: $purple-opacity;
+          color: $purple;
+        }
       }
     }
 
     // END SCREEN MOBILE
     .end-screen {
       .end-content {
+        @include flex(center, center);
+        flex-direction: column;
         h2 {
           margin: 0rem 2rem;
         }
@@ -145,6 +175,7 @@ button {
           margin: 3rem 2rem;
           background-color: $lavender;
           padding: 1rem;
+          width: 150px;
         }
         h4 {
           padding: 0.3rem;
@@ -156,10 +187,10 @@ button {
             @include flex(center, flex-start);
             flex-direction: column;
             padding: 1rem 0;
-            font-size: 1.2rem;
+            font-size: 1.4rem;
+            color: rgba($black, 0.6);
             line-height: 1.6rem;
             text-transform: uppercase;
-
             input {
               padding: 0.6rem;
               border: 1px solid $grey;
@@ -184,12 +215,141 @@ button {
         }
       }
     }
+
+    // HALL OF FAME LEADERBOARD MOBILE
+    .leaderboard-screen {
+      .leaderboard-content {
+        h1 {
+          font-family: 'Bowlby One', sans-serif;
+          padding: 1rem;
+          color: $red;
+        }
+        .grid-titles {
+          display: grid;
+          grid-template-columns: 1fr 3fr 1fr;
+          h2 {
+            padding: 1rem 0;
+            border-bottom: 1px solid $grey;
+            margin-bottom: 1rem;
+          }
+        }
+        .grid-container {
+          display: grid;
+          grid-template-columns: 1fr 3fr 1fr;
+          grid-template-rows: repeat(11, 1fr);
+          h3 {
+            padding: .8rem 0;
+          }
+          .row2, .row4, .row6, .row8, .row10 {
+            background-color: $red-opacity;
+          }
+        }
+        h4 {
+          padding: 2rem;
+        }
+        button {
+          background-color: $purple;
+          a {
+            color: $white;
+            text-decoration: none;
+          }
+        }
+      }
+    }
   }
 }
 
-// @media (min-width: $standard) {
+@media (min-width: $desktop) {
+  .App {
+    @include flex(flex-start, center);
+    flex-direction: column;
 
-// }
+    // NAV DESKTOP
+    nav {
+      padding: 1.4rem;
+      font-size: 2rem;
+    }
+    .content {
+      .App-logo {
+        margin: 2rem;
+        // height: auto;
+      }
+
+      // START SCREEN DESKTOP
+      .start-screen {
+        .start-content {
+          display: flex;
+          justify-content: center;
+          h2 {
+            max-width: 50%;
+          }
+        }
+        .button {
+          button {
+            a {
+              font-size: 1.8rem;
+              line-height: 2.4rem;
+            }
+          }
+        }
+      }
+
+      // PLAY SCREEN DESKTOP
+      .play-screen {
+        .play-content {
+          .button {
+            button {
+              a {
+                font-size: 1.8rem;
+                line-height: 2.4rem;
+              }
+            }
+          }
+        }
+      }
+
+      // END SCREEN DESKTOP
+      .end-screen {
+        .end-content {
+          h3 {
+            font-size: 2.2rem;
+            margin: 3rem 2rem;
+          }
+          h4 {
+            font-size: 2rem;
+            padding: 0.5rem;
+          }
+          form {
+            label {
+              font-size: 1.6rem;
+              line-height: 1.8rem;
+              input {
+                padding: 0.8rem;
+                font-size: 1.4rem;
+              }
+            }
+            .button {
+              button {
+                a {
+                  font-size: 1.8rem;
+                  line-height: 2.4rem;
+                }
+              }
+            }
+          }
+        }
+        .button {
+          button {
+            a {
+              font-size: 1.8rem;
+              line-height: 2.4rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
 
 // .App-logo {
 //   animation: App-logo-spin infinite 20s linear;
