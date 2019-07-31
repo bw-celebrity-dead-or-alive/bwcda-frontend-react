@@ -23,7 +23,7 @@ export default function App() {
           <Route path='/end' component={EndingScreen} />
           <Route path='/leaderboard' component={LeaderBoard} />
           <Route path='/login' component={Login} />
-          <Route component={Err404} /> {/* This Line of code is giving us a react warning, see console */}
+          <Route component={Err404} />
         </Switch>
       </div>
     </div>
