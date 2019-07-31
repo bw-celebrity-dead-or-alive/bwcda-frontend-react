@@ -6,7 +6,7 @@ const Button = (props) => {
   let path = props.pathName
 
   return (
-    <div className='buttons'>
+    <div className='button'>
       <button><Link to={`/${path}`} >{text}</Link></button>
     </div>
   )
