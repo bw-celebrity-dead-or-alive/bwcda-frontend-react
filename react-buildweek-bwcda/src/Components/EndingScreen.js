@@ -6,7 +6,9 @@ const EndingScreen = () => {
   const score = window.localStorage.getItem("HighScore")
   const guess = window.localStorage.getItem("TotalGuesses")
 
-  const displayScore = score * (10 * (score / guess))
+  let displayScore = score * (10 * (score / guess))
+  isNaN(displayScore) ? displayScore = 0 : console.log('Is number')
+
 
   return (
     <div className='end-screen'>

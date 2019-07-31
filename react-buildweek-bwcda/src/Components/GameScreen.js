@@ -1,5 +1,5 @@
 //Tim
-//Login screen
+// Login screen, Need
 
 //Kristin
 //User ONLY high Score screen
@@ -18,11 +18,10 @@ const GameScreen = () => {
     return Math.floor((Math.random() * 300) + 1)
   }
 
-
   //This fetches the list of celebs
   const [data, setData] = useState({});
   //This works with SetCurrentCard to identify the current ID needed to be passed
-  const [id, setId] = useState(randomID());
+  const [id, setId] = useState(Math.floor((Math.random() * 300) + 1));
   //Keeps track of Score and resets to zero after game ends.
   const [score, setScore] = useState(0)
   const [guesses, setGuesses] = useState(0)
@@ -34,12 +33,13 @@ const GameScreen = () => {
     axios
       .get(`https://prod-celebrity-dead-alive.herokuapp.com/api/celebrities/${id}`)
       .then(e => {
-        console.log(e.status)
-        e.status ? setData(e.data) : console.log("We are Here damnit")
+        console.log(e.data.id)
+        e.status ? setData(e.data) : console.log("This shouldn't show up")
       })
       .catch(err => {
         console.log("Something isnt working", err)
         setId(randomID());
+
       });
   }, [id]);
 
@@ -47,8 +47,6 @@ const GameScreen = () => {
     const timer = setTimeout(() => setTime(true), 30000);
     return () => clearTimeout(timer);
   }, []);
-
-
 
   //Checks for death case on Click
   const isDead = (deathCheck) => {
@@ -87,7 +85,6 @@ const GameScreen = () => {
               <div className='score-status'>
                 <h3>Guesses:&nbsp;&nbsp; {guesses}</h3>
                 <h3>Correct Guesses:&nbsp;&nbsp; {score}</h3>
-
               </div>
               <Timebar />
               {data ? <CelebCard data={data} /> : <div>Loading...</div>}
