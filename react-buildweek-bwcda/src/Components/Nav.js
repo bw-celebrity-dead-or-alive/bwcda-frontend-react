@@ -1,7 +1,5 @@
 import React from 'react'
-import { Route, Link } from 'react-router-dom'
-import App from '../App'
-import LeaderBoard from './LeaderBoard';
+import { Link } from 'react-router-dom'
 
 const Nav = () => {
   return (
