@@ -5,14 +5,14 @@ import React from 'react'
 import transition from '..//scss/transition.scss'
 
 const Timebar = () => {
-  return(
-    <div class="container">    
-  <div class="progress progress-striped">
-    <div class="progress-bar">
-    </div>                       
-  </div> 
-</div>
-    )
+  return (
+    <div className="container">
+      <div className="progress progress-striped">
+        <div className="progress-bar">
+        </div>
+      </div>
+    </div>
+  )
 }
 
 export default Timebar

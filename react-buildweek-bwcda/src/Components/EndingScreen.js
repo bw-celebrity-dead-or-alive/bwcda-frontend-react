@@ -6,6 +6,8 @@ const EndingScreen = () => {
   const score = window.localStorage.getItem("HighScore")
   const guess = window.localStorage.getItem("TotalGuesses")
 
+  const displayScore = score * (10 * (score / guess))
+
   return (
     <div className='end-screen'>
       <header className='end-content'>
@@ -15,7 +17,7 @@ const EndingScreen = () => {
         <br />
         <h4>CORRECT GUESSES: {score}</h4>
         <h4>TOTAL GUESSES: {guess}</h4>
-        <h3>SCORE: {score}</h3>
+        <h3>SCORE: {Math.floor(displayScore)}</h3>
         <h4>Enter your name to save your score:</h4>
         <NameForm />
       </header>
