@@ -6,46 +6,56 @@ const UserScores = () => {
   const [userGames, setUserGames] = useState([])
   const [playerId, setPlayerId] = useState(5)
 
-  useEffect(() => {
-    //example
-  //   const token = localStorage.getItem('token') || null;
-  //   axios.get('url', {
-  //     headers: {
-  //       'Authorization': token
-  //     }
-  //   })
-  //   axios.post('url', {name: 'krishna', email: 'email@me.com'}, {
-  //     headers: {
+  /*
+    Store into local data under a UserName Key that is an array of objects, and each time a new game occurs we want to use the spread operator to add another instance of the game and then store it all back into local storage to be pulled out into UserScores.
+   */
 
-  //     }
-  //   })
-  // const Axios = axios.create({
-  //   header: {
-  //     'Authorization': token
-  //   }
-  // });
+  // useEffect(() => {
+    //example
+    //   const token = localStorage.getItem('token') || null;
+    //   axios.get('url', {
+    //     headers: {
+    //       'Authorization': token
+    //     }
+    //   })
+    //   axios.post('url', {name: 'krishna', email: 'email@me.com'}, {
+    //     headers: {}
+    //   })
+    // const Axios = axios.create({
+    //   header: {
+    //     'Authorization': token
+    //   }
+    // });
     //end example
-    axios
-      .get(`https://prod-celebrity-dead-alive.herokuapp.com/api/players/${playerId}/scores`)
-      .then((res) => {
-        // console.log(res)
-        const userGamesArr = res.data
-        .sort((a, b) => {
-          return b.score - a.score
-        })
-        .slice(0, 10)
-        setUserGames(userGamesArr)
-      })
-      .catch((err) => {
-        return `Failed to load user's high scores`, err
-      })
-    }, [])
+
+  //   axios
+  //     .get(`https://prod-celebrity-dead-alive.herokuapp.com/api/players/${playerId}/scores`)
+  //     .then((res) => {
+  //       // console.log(res)
+  //       const userGamesArr = res.data
+  //         .sort((a, b) => {
+  //           return b.score - a.score
+  //         })
+  //         .slice(0, 10)
+  //       setUserGames(userGamesArr)
+  //     })
+  //     .catch((err) => {
+  //       return `Failed to load user's high scores`, err
+  //     })
+  // }, [])
+
+  let isNameHere = window.localStorage.getItem('SignUpCred') || ''
+
+  let games;
+  if (isNameHere) {
+    games = JSON.parse(window.localStorage.getItem(isNameHere))
+  }
 
   return (
     <div className='userscores-screen'>
       <header className='userscores-content'>
         <h1>HALL OF FAME</h1>
-        <h2>{userGames.map(e=>e.name)[0]}</h2>
+        <h2>{isNameHere}</h2>
         <div className='grid-titles'>
           <h2>RANK</h2>
           <h2>SCORE</h2>
@@ -53,16 +63,18 @@ const UserScores = () => {
         </div>
         <div className='grid-container'>
           <div className='rank-column'>
-            {userGames.map((user, i) => <h3 key={user.id}>{i+1}</h3>)}
+            {games.map((game, i) => (
+              <h3 key={game.score}>{i + 1}</h3>
+            ))}
           </div>
           <div className='score-column'>
-            {userGames.map((user) => (
-              <h3 key={user.id}>{user.score}</h3>
+            {games.map((game) => (
+              <h3 key={game.score}>{game.score}</h3>
             ))}
           </div>
           <div className='date-column'>
-            {userGames.map((user) => (
-              <h3 key={user.id}>{user.created_at.slice(0,10)}</h3>
+            {games.map((game) => (
+              <h3 key={game.score}>{game['date']}</h3>
             ))}
           </div>
           <div />

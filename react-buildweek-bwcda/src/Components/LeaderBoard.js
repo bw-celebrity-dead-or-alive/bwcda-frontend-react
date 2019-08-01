@@ -20,6 +20,8 @@ const LeaderBoard = () => {
       })
   }, [])
 
+  let isNameHere = window.localStorage.getItem("SignUpCred") || ""
+
   return (
     <>
       {highScores ? (
@@ -48,14 +50,20 @@ const LeaderBoard = () => {
             </div>
             <div />
           </div>
-          <div className='logged-in-hide'>
-            <h4>Login to save and view your own high scores!</h4>
-            <Button buttonText={'LOGIN'} pathName={'login'} />
-          </div>
+          {isNameHere === "" ?
+            (<div>
+              <h4>Login to save and view your own high scores!</h4>
+              <Button buttonText={'LOGIN'} pathName={'login'} />
+            </div>) : <div>
+              <h4>Play again to beat the high score!</h4>
+              <Button buttonText={'PLAY AGAIN'} pathName={'play'} />
+            </div>
+          }
+
         </div>
       ) : (
-        <div>Loading Scores...</div>
-      )}
+          <div>Loading Scores...</div>
+        )}
     </>
   )
 }

@@ -15,7 +15,7 @@ const CelebCard = (props) => {
       <h3>{props.data.name}</h3>
       <h4>{props.data.info}</h4>
       <h4>Birth Year: {props.data.birth}</h4>
-      </div>
+    </div>
   )
 }
 

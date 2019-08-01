@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import Button from './Button'
 
 const SignupScreen = () => {
-    const [loginCred, setloginCred] = useState({ username: '', email: '', password: '' })
+    const [signUpCred, setsignUpCred] = useState({ username: '', email: '', password: '' })
 
     const handleChange = (e) => {
-        setloginCred({ ...loginCred, [e.target.name]: e.target.value })
+        setsignUpCred({ ...signUpCred, [e.target.name]: e.target.value })
     }
+
+    window.localStorage.setItem("SignUpCred", (signUpCred.username))
 
     return (
         <div className='end-screen'>
@@ -17,7 +19,7 @@ const SignupScreen = () => {
                             Name
                         <input
                                 placeholder='username'
-                                value={loginCred.username}
+                                value={signUpCred.username}
                                 name='username'
                                 onChange={handleChange}
                             />
@@ -26,9 +28,9 @@ const SignupScreen = () => {
                             Email
                         <input
                                 type="email"
-                                placeholder='username'
-                                value={loginCred.email}
-                                name='username'
+                                placeholder='email'
+                                value={signUpCred.email}
+                                name='email'
                                 onChange={handleChange}
                             />
                         </label>
@@ -37,7 +39,7 @@ const SignupScreen = () => {
                         <input
                                 type="password"
                                 placeholder='password'
-                                value={loginCred.password}
+                                value={signUpCred.password}
                                 name='password'
                                 onChange={handleChange}
                             />

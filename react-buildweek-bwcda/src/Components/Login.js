@@ -2,11 +2,14 @@ import React, { useState } from 'react'
 import Button from './Button'
 
 const LoginScreen = () => {
-  const [loginCred, setloginCred] = useState({ username: '', password: '' })
+  const [loginCred, setloginCred] = useState({ email: '', password: '' })
 
   const handleChange = (e) => {
+
     setloginCred({ ...loginCred, [e.target.name]: e.target.value })
   }
+
+  window.localStorage.setItem("LoginCred", JSON.stringify(loginCred))
 
   return (
     <div className='login-screen'>
@@ -22,7 +25,7 @@ const LoginScreen = () => {
         </label>
         <label htmlFor='password'>
           Password
-          <input
+        <input
             type='password'
             placeholder='password'
             value={loginCred.password}
