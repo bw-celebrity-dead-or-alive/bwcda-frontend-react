@@ -86,9 +86,9 @@ button:hover {
     background-color: $red;
     vertical-align: text-bottom;
     padding: 1rem;
-    font-size: 1.2rem;
     width: 100%;
     a {
+      font-size: 1.6rem;
       color: $white;
       text-decoration: none;
     }
@@ -96,42 +96,48 @@ button:hover {
   .content {
     .App-logo {
       margin: 1rem;
-      height: auto;
+      height: 20vh;
+      max-height: 100%;
     }
-
     // START SCREEN MOBILE
     .start-screen {
       .start-content {
-        text-align: center;
+        @include flex(center, center);
+        flex-direction: column;
         h2 {
-          margin: 3rem 6rem;
+          max-width: 70%;
+          margin: 3rem;
+        }
+        h3 {
+          max-width: 50%;
+          margin: 2rem;
         }
       }
-      .button {
+      .buttons {
         @include flex(space-around, center);
         flex-direction: column;
-        button {
-          background-color: $red;
-          a {
+        a {
+          button {
+            background-color: $purple;
             color: $white;
             text-decoration: none;
           }
         }
-      }
-      .button:last-child {
-        button {
-          background-color: $purple;
+        a:last-child {
+          button {
+            background-color: $red;
+          }
         }
       }
     }
-
     // PLAY SCREEN MOBILE
     .play-screen {
       .play-content {
         .score-status {
           @include flex(center, space-around);
           h3 {
-            line-height: 2.4rem;
+            font-size: 1.6rem;
+            line-height: 1rem;
             text-transform: uppercase;
             margin: 0 2rem;
           }
@@ -141,17 +147,19 @@ button:hover {
           margin: 1.6rem 0;
         }
         .celeb-card {
-          padding-bottom: 1rem;
+          // padding-bottom: 1rem;
           img {
-            margin: 1rem;
+            margin: 0rem;
+            height: 40vh;
             max-height: 295px;
+            overflow: hidden;
             box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.2);
           }
           h3 {
-            margin: 1.4rem 0;
+            margin: 1.2rem 0;
           }
           h4 {
-            margin: 0.3rem;
+            margin: 0rem;
           }
         }
         button {
@@ -159,6 +167,7 @@ button:hover {
           color: $white;
           text-transform: uppercase;
           text-decoration: none;
+          width: 100px;
         }
         button:hover {
           box-shadow: inset 0 0 3px 3px $purple;
@@ -167,7 +176,6 @@ button:hover {
         }
       }
     }
-
     // END SCREEN MOBILE
     .end-screen {
       .end-content {
@@ -189,7 +197,7 @@ button:hover {
           @include flex(center, center);
           flex-direction: column;
           label {
-            @include flex(center, flex-start);
+            @include flex(center, center);
             flex-direction: column;
             padding: 1rem 0;
             font-size: 1.4rem;
@@ -205,25 +213,57 @@ button:hover {
           button {
             background-color: $red;
             margin-bottom: 2rem;
-            a {
-              color: $white;
-              text-decoration: none;
-            }
+            color: $white;
+            text-decoration: none;
           }
         }
       }
       button {
         background-color: $purple;
-        a {
-          color: $white;
-          text-decoration: none;
-        }
+        color: $white;
+        text-decoration: none;
       }
     }
-
     // HALL OF FAME LEADERBOARD MOBILE
     .leaderboard-screen {
-      .leaderboard-content {
+      h1 {
+        font-family: 'Bowlby One', sans-serif;
+        padding: 1rem;
+        color: $red;
+      }
+      .grid-titles {
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
+        h2 {
+          font-size: 2rem;
+          padding: 0.6rem 0;
+          border-bottom: 1px solid $grey;
+        }
+      }
+      .grid-container {
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
+        .grid-column {
+          h3 {
+            padding: 0.4rem 0;
+          }
+          h3:nth-child(even) {
+            background-color: $red-opacity;
+          }
+        }
+      }
+      h4 {
+        padding: 2rem 0 0.4rem 0;
+      }
+      button {
+        background-color: $red;
+        color: $white;
+        text-decoration: none;
+      }
+    }
+    // USER SCORES MOBILE
+    .userscores-screen {
+      .userscores-content {
         h1 {
           font-family: 'Bowlby One', sans-serif;
           padding: 1rem;
@@ -233,28 +273,20 @@ button:hover {
           display: grid;
           grid-template-columns: 1fr 3fr 1fr;
           h2 {
-            padding: 1rem 0;
+            padding: 1.6rem 0;
             border-bottom: 1px solid $grey;
             margin-bottom: 1rem;
           }
         }
         .grid-container {
           display: grid;
-          grid-template-columns: 1fr 3fr 1fr;
+          grid-template-columns: 1fr 1fr 1fr;
           .rank-column {
             h3 {
               padding: 0.8rem 0;
             }
             h3:nth-child(even) {
-              background-color: $red-opacity;
-            }
-          }
-          .name-column {
-            h3 {
-              padding: 0.8rem 0;
-            }
-            h3:nth-child(even) {
-              background-color: $red-opacity;
+              background-color: $lavender;
             }
           }
           .score-column {
@@ -262,7 +294,15 @@ button:hover {
               padding: 0.8rem 0;
             }
             h3:nth-child(even) {
-              background-color: $red-opacity;
+              background-color: $lavender;
+            }
+          }
+          .date-column {
+            h3 {
+              padding: 0.8rem 0;
+            }
+            h3:nth-child(even) {
+              background-color: $lavender;
             }
           }
         }
@@ -271,12 +311,55 @@ button:hover {
         }
         button {
           background-color: $purple;
+          color: $white;
+          text-decoration: none;
+        }
+      }
+    }
+    // LOGIN MOBILE
+    .login-screen {
+      @include flex(center, center);
+      flex-direction: column;
+      form {
+        @include flex(center, center);
+        flex-direction: column;
+        label {
+          @include flex(center, center);
+          flex-direction: column;
+          padding: 1rem 0;
+          font-size: 1.4rem;
+          color: rgba($black, 0.6);
+          line-height: 1.6rem;
+          text-transform: uppercase;
+          input {
+            padding: 0.6rem;
+            border: 1px solid $grey;
+            border-radius: 6px;
+          }
+        }
+        .buttons {
+          @include flex(center, center);
+          flex-direction: column;
           a {
-            color: $white;
-            text-decoration: none;
+            button {
+              background-color: $red;
+              margin-bottom: 2rem;
+              color: $white;
+              text-decoration: none;
+            }
+          }
+          a:last-child {
+            button {
+              background-color: $purple;
+              color: $white;
+              text-decoration: none;
+            }
           }
         }
       }
+    }
+    // SIGN UP MOBILE
+    .signup-screen {
     }
   }
 }
@@ -285,7 +368,6 @@ button:hover {
   .App {
     @include flex(flex-start, center);
     flex-direction: column;
-
     // NAV DESKTOP
     nav {
       padding: 1.4rem;
@@ -294,18 +376,9 @@ button:hover {
     .content {
       .App-logo {
         margin: 2rem;
-        // height: auto;
       }
-
       // START SCREEN DESKTOP
       .start-screen {
-        .start-content {
-          display: flex;
-          justify-content: center;
-          h2 {
-            max-width: 50%;
-          }
-        }
         .button {
           button {
             a {
@@ -315,21 +388,20 @@ button:hover {
           }
         }
       }
-
       // PLAY SCREEN DESKTOP
       .play-screen {
         .play-content {
-          .button {
-            button {
-              a {
-                font-size: 1.8rem;
-                line-height: 2.4rem;
-              }
+          .score-status {
+            h3 {
+              font-size: 1.8rem;
             }
+          }
+          button {
+            font-size: 1.8rem;
+            line-height: 2.4rem;
           }
         }
       }
-
       // END SCREEN DESKTOP
       .end-screen {
         .end-content {
@@ -367,6 +439,25 @@ button:hover {
               line-height: 2.4rem;
             }
           }
+        }
+      }
+      // HALL OF FAME LEADERBOARD MOBILE
+      .leaderboard-screen {
+        .grid-titles {
+          h2 {
+            font-size: 2.2rem;
+            padding: 1rem 0;
+          }
+        }
+        .grid-container {
+          .grid-column {
+            h3 {
+              padding: 0.6rem 0;
+            }
+          }
+        }
+        h4 {
+          padding: 2.4rem 0 1.4rem 0;
         }
       }
     }

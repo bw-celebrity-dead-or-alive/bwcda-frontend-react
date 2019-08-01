@@ -1,18 +1,19 @@
 import React, { useState } from 'react'
 import Button from './Button'
 
-const NameForm = (props) => {
-  const [playerName, setPlayerName] = useState({ firstname: '', lastname: '' })
+const NameForm = () => {
+  const [playerName, setPlayerName] = useState('')
 
   const handleChange = (e) => {
-    setPlayerName({...playerName, [e.target.name]: e.target.value})
+    setPlayerName(e.target.value)
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    setPlayerName({firstname: '', lastname:''})
-    alert(`Thanks ${playerName.firstname}! Your score has been saved!`)
-    // history.push('/halloffame')
+    //TODO: name input needs to be saved to db
+    // console.log(e.target.value)
+    setPlayerName('')
+    // alert(`Thanks ${playerName.firstname}! Your score has been saved!`)
   }
 
   return (
@@ -22,20 +23,12 @@ const NameForm = (props) => {
           First name
           <input
             placeholder='first name'
-            value={playerName.firstname}
+            value={playerName}
             name='firstname'
             onChange={handleChange}
           />
         </label>
-        <label htmlFor='lastname'>
-          Last name
-          <input
-            placeholder='last name'
-            value={playerName.lastname}
-            name='lastname'
-            onChange={handleChange}
-          />
-        </label>
+
         <Button type='submit' buttonText={'SUBMIT'} />
       </form>
     </div>

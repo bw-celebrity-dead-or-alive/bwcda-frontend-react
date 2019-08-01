@@ -1,11 +1,5 @@
-//Tim
-//Login screen
-
-//Kristin
-//User ONLY high Score screen
-
-//Jeff
-//Animations
+//Tim                          //Jeff               //Kristin
+// Login screen, Need         //Animation           //User ONLY high Score screen
 
 import React, { useEffect, useState } from "react";
 import { Redirect, Route } from 'react-router-dom'
@@ -14,6 +8,7 @@ import CelebCard from './CelebCard';
 import Timebar from './Timebar';
 
 const GameScreen = () => {
+
   const randomID = () => {
     return Math.floor((Math.random() * 300) + 1)
   }
