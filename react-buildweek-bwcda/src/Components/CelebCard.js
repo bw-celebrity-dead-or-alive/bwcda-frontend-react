@@ -2,12 +2,6 @@
 
 import React from 'react'
 
-
-
-//trying to itterate over img/h3/h4 below and toggle a class that would trigger an animation
-//code abov does not work
-
-
 const CelebCard = (props) => {
   return (
     <div className='celeb-card'>

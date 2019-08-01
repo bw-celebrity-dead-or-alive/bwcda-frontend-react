@@ -69,17 +69,25 @@ const GameScreen = () => {
   window.localStorage.setItem("HighScore", JSON.stringify(score))
   window.localStorage.setItem("TotalGuesses", JSON.stringify(guesses))
 
+  // const setAniToggle = () => {
+  //   const [ani, setAni] = setAni();
+  //   const toggleMode = e => {
+  //     e.preventDefault();
+  //     setAni(!ani);
+  //   };
+
 //   window.onload = function(){
-//       var btn = document.getElementById(answerbutton);
-//       btn.onclick = function(event){
-//       btn.children[0].classList.add('celeb-card-ani');
-//           setTimeout(function(){
-//             btn.children[0].classList.remove('celeb-card-ani');
-//           }, 500);
-//       }
-//     //trying to set button to add and remove class list of second animation
+//     var btn = document.querySelector('answerbutton');
+//     btn.onclick = function(event){
+//     btn.children[0].classList.add('celeb-card-ani');
+//         setTimeout(function(){
+//           btn.children[0].classList.remove('celeb-card-ani');
+//         }, 500);
+//     }
+//   //trying to set button to add and remove class list of second animation
 // }
 
+  
   return (
     <div className='play-screen'>
       <Route path="/play" render={() => (
@@ -93,8 +101,8 @@ const GameScreen = () => {
               </div>
               <Timebar />
               {data ? <CelebCard data={data} /> : <div>Loading...</div>}
-              <button id='answerbutton' onClick={() => isDead(data.death)}>Dead</button>
-              <button id='answerbutton' onClick={() => isAlive(data.death)}>Alive</button>
+              <button onClick={() => isDead(data.death)}>Dead</button>
+              <button onClick={() => isAlive(data.death)}>Alive</button>
             </div>
           )
       )} />
