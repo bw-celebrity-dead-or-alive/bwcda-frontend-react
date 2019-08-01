@@ -1,3 +1,8 @@
+@import 'reset';
+@import 'variables';
+@import 'mixins';
+@import url('https://fonts.googleapis.com/css?family=Bowlby+One|Ropa+Sans&display=swap');
+
 .progress {
     margin: 5px;
     padding: 6px;
@@ -7,6 +12,7 @@
   }
   
   .progress-bar {    
+    text-align: end;
     height: 18px;
     background-color: #ee303c;  
     border-radius: 4px; 
@@ -15,7 +21,7 @@
   }
   
   .progress-striped .progress-bar {     
-    background-color: #ee1c42; 
+    background-color: $red;
     width: 100%; 
     animation: progressAnimationStrike 30s linear;
   }
@@ -25,39 +31,166 @@
        to   { width: 100% }
   }
    
-  
-  @keyframes progressAnimation {
-    0%   { width: 5%; background-color: #F9BCCA;}
-    100% { width: 85%; background-color: #EF476F; }
+@keyframes bounce {
+	0%, 100%, 20%, 50%, 80% {
+		transform:         translateY(0)
+	}
+	40% {
+		transform:         translateY(-3px)
+	}
+	60% {
+		transform:         translateY(-2px)
+	}
+}
+
+.play-screen {
+  animation: enterRight ease .3s, fadeIn ease-in .3s ;
+}
+
+.end-screen , .leaderboard-screen , .start-screen,  .userscores-screen , .login-screen , .signup-screen{
+  animation: fadeIn ease-in .1s ;
+}
+
+.App-logo{
+  animation:  jackInTheBox ease .5s;
+}
+
+.celeb-card-ani{
+   animation: exitLeft ease .3s, fadeOut ease-in .3s ;
+}
+//trying on an update to push a new animation
+
+@keyframes fadeIn{
+  0% {
+    opacity:0;
   }
-  
-  $green: #4cd964;
-  $turquoise: #5ac8fa;
-  $blue: #007aff;
-  $light-blue: #7DC8E8;
-  $purple: #5856d6;
-  $red: #ff2d55;
-  
-  
-  @keyframes colorAnimation {
-    0% { 
-      background-image: 
-      linear-gradient(to right, $green, $turquoise, $blue, $light-blue, $purple, $red);
-    }
-    20% { 
-      background-image: 
-      linear-gradient(to right, $turquoise, $blue, $light-blue, $purple, $red, $green);
-    }
-    40% { 
-      background-image: 
-      linear-gradient(to right, $blue, $light-blue, $purple, $red, $green, $turquoise);
-    }
-    60% { 
-      background-image: 
-      linear-gradient(to right, $light-blue, $purple, $red, $green, $turquoise, $blue);
-    }
-    100% { 
-      background-image: 
-      linear-gradient(to right, $purple, $red, $green, $turquoise, $blue, $light-blue);
-    }
+  100% {
+    opacity:1;
   }
+}
+
+.enterLeft {
+  animation-name: enterLeft;
+  transform-origin: center;
+  animation-iteration-count: 1;
+}
+
+@keyframes enterRight {
+  0% {
+    opacity: 0;
+    transform:  translate(0px,0px);
+  }
+  100% {
+    opacity: 1;
+    transform:  translate(600px,0px);
+  }
+}
+
+.enterRight {
+  animation-name: enterRight;
+  transform-origin: center;
+  animation-iteration-count: 1;
+}
+
+@keyframes enterRight {
+  0% {
+    opacity: 0;
+    transform:  translate(600px,0px);
+  }
+  100% {
+    opacity: 1;
+    transform:  translate(0px,0px);
+  }
+}
+
+
+.fadeOut {
+  animation-delay: 28s;
+  animation-name: fadeOut;
+}
+
+@keyframes fadeOut {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
+
+.exitLeft {
+  animation-name: exitLeft;
+  transform-origin: center;
+  animation-iteration-count: 1;
+}
+
+
+@keyframes exitLeft {
+  0% {
+    transform:  translate(0px,0px);
+  }
+  100% {
+    transform:  translate(-600px,0px);
+  }
+}
+
+@keyframes jackInTheBox {
+  from {
+    opacity: 0;
+    transform: scale(0.1) rotate(30deg);
+    transform-origin: center bottom;
+  }
+
+  50% {
+    transform: rotate(-10deg);
+  }
+
+  70% {
+    transform: rotate(3deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.jackInTheBox {
+  animation-name: jackInTheBox;
+  transform-origin: center bottom;
+  animation-iteration-count: 1;
+}
+
+
+
+// .lds-ring {
+//   display: inline-block;
+//   position: relative;
+//   width: 64px;
+//   height: 64px;
+// }
+// .lds-ring div {
+//   box-sizing: border-box;
+//   display: block;
+//   position: absolute;
+//   width: 51px;
+//   height: 51px;
+//   margin: 6px;
+//   border: 6px solid #fff;
+//   border-radius: 50%;
+//   animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+//   border-color: #fff transparent transparent transparent;
+// }
+// .lds-ring div:nth-child(1) {
+//   animation-delay: -0.45s;
+// }
+// .lds-ring div:nth-child(2) {
+//   animation-delay: -0.3s;
+// }
+// .lds-ring div:nth-child(3) {
+//   animation-delay: -0.15s;
+// }
+// @keyframes lds-ring {
+//   0% {
+//     transform: rotate(0deg);
+//   }
+//   100% {
+//     transform: rotate(360deg);
+//   }
+// }

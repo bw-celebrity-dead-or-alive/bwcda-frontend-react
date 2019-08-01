@@ -1,11 +1,5 @@
-//Tim
-//Login screen
-
-//Kristin
-//User ONLY high Score screen
-
-//Jeff
-//Animations
+//Tim                          //Jeff               //Kristin
+// Login screen, Need         //Animation           //User ONLY high Score screen
 
 import React, { useEffect, useState } from "react";
 import { Redirect, Route } from 'react-router-dom'
@@ -13,16 +7,17 @@ import axios from "axios";
 import CelebCard from './CelebCard';
 import Timebar from './Timebar';
 
+
 const GameScreen = () => {
+
   const randomID = () => {
     return Math.floor((Math.random() * 300) + 1)
   }
 
-
   //This fetches the list of celebs
   const [data, setData] = useState({});
   //This works with SetCurrentCard to identify the current ID needed to be passed
-  const [id, setId] = useState(randomID());
+  const [id, setId] = useState(Math.floor((Math.random() * 300) + 1));
   //Keeps track of Score and resets to zero after game ends.
   const [score, setScore] = useState(0)
   const [guesses, setGuesses] = useState(0)
@@ -34,12 +29,13 @@ const GameScreen = () => {
     axios
       .get(`https://prod-celebrity-dead-alive.herokuapp.com/api/celebrities/${id}`)
       .then(e => {
-        console.log(e.status)
-        e.status ? setData(e.data) : console.log("We are Here damnit")
+        console.log(e.data.id)
+        e.status ? setData(e.data) : console.log("This shouldn't show up")
       })
       .catch(err => {
         console.log("Something isnt working", err)
         setId(randomID());
+
       });
   }, [id]);
 
@@ -47,8 +43,6 @@ const GameScreen = () => {
     const timer = setTimeout(() => setTime(true), 30000);
     return () => clearTimeout(timer);
   }, []);
-
-
 
   //Checks for death case on Click
   const isDead = (deathCheck) => {
@@ -72,11 +66,28 @@ const GameScreen = () => {
     setGuesses(guesses + 1)
   }
 
-
-
-  window.localStorage.setItem("HighScore", JSON.stringify(score))
+  window.localStorage.setItem("CorrectGuesses", JSON.stringify(score))
   window.localStorage.setItem("TotalGuesses", JSON.stringify(guesses))
 
+  // const setAniToggle = () => {
+  //   const [ani, setAni] = setAni();
+  //   const toggleMode = e => {
+  //     e.preventDefault();
+  //     setAni(!ani);
+  //   };
+
+//   window.onload = function(){
+//     var btn = document.querySelector('answerbutton');
+//     btn.onclick = function(event){
+//     btn.children[0].classList.add('celeb-card-ani');
+//         setTimeout(function(){
+//           btn.children[0].classList.remove('celeb-card-ani');
+//         }, 500);
+//     }
+//   //trying to set button to add and remove class list of second animation
+// }
+
+  
   return (
     <div className='play-screen'>
       <Route path="/play" render={() => (
@@ -87,11 +98,9 @@ const GameScreen = () => {
               <div className='score-status'>
                 <h3>Guesses:&nbsp;&nbsp; {guesses}</h3>
                 <h3>Correct Guesses:&nbsp;&nbsp; {score}</h3>
-
               </div>
               <Timebar />
               {data ? <CelebCard data={data} /> : <div>Loading...</div>}
-
               <button onClick={() => isDead(data.death)}>Dead</button>
               <button onClick={() => isAlive(data.death)}>Alive</button>
             </div>

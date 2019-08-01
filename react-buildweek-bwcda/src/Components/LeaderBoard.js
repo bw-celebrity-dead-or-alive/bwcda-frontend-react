@@ -4,17 +4,15 @@ import Button from './Button'
 
 const LeaderBoard = () => {
   const [highScores, setHighScores] = useState([])
+  const [loggedIn, setLoggedIn] = useState(false)
 
   useEffect(() => {
     axios
-      .get('https://prod-celebrity-dead-alive.herokuapp.com/api/leaderboard/')
+      .get(
+        'https://prod-celebrity-dead-alive.herokuapp.com/api/leaderboard/?page=1&limit=10'
+      )
       .then((res) => {
-        // console.log('res.data', res)
         const highScoresArr = res.data
-          .sort((a, b) => {
-            return b.score - a.score
-          })
-          .slice(0, 10)
         setHighScores(highScoresArr)
       })
       .catch((err) => {
@@ -22,48 +20,51 @@ const LeaderBoard = () => {
       })
   }, [])
 
+  let isNameHere = window.localStorage.getItem("SignUpCred") || ""
+
   return (
-    <div className='leaderboard-screen'>
+    <>
       {highScores ? (
-        <header className='leaderboard-content'>
+        <div className='leaderboard-screen'>
           <h1>HALL OF FAME</h1>
           <div className='grid-titles'>
-            <h2 className='title-rank'>RANK</h2>
-            <h2 className='name-rank'>NAME</h2>
-            <h2 className='score-rank'>SCORE</h2>
+            <h2>RANK</h2>
+            <h2>NAME</h2>
+            <h2>SCORE</h2>
           </div>
           <div className='grid-container'>
-            <div className='rank-column'>
-              <h3 className='row1'>1</h3>
-              <h3 className='row2'>2</h3>
-              <h3 className='row3'>3</h3>
-              <h3 className='row4'>4</h3>
-              <h3 className='row5'>5</h3>
-              <h3 className='row6'>6</h3>
-              <h3 className='row7'>7</h3>
-              <h3 className='row8'>8</h3>
-              <h3 className='row9'>9</h3>
-              <h3 className='row10'>10</h3>
+            <div className='grid-column'>
+              {highScores.map((user, i) => (
+                <h3 key={user.id}>{i + 1}</h3>
+              ))}
             </div>
-            <div className='name-column'>
+            <div className='grid-column'>
               {highScores.map((person) => (
                 <h3 key={person.id}>{person.name}</h3>
               ))}
             </div>
-            <div className='score-column'>
+            <div className='grid-column'>
               {highScores.map((person) => (
                 <h3 key={person.id}>{person.score}</h3>
               ))}
             </div>
             <div />
           </div>
-          <h4>Login to save and view your own high scores!</h4>
-          <Button buttonText={'LOGIN'} pathName={'login'} />
-        </header>
+          {isNameHere === "" ?
+            (<div>
+              <h4>Login to save and view your own high scores!</h4>
+              <Button buttonText={'LOGIN'} pathName={'login'} />
+            </div>) : <div>
+              <h4>Play again to beat the high score!</h4>
+              <Button buttonText={'PLAY AGAIN'} pathName={'play'} />
+            </div>
+          }
+
+        </div>
       ) : (
-        <div>Loading Scores...</div>
-      )}
-    </div>
+          <div>Loading Scores...</div>
+        )}
+    </>
   )
 }
 
