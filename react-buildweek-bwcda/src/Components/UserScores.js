@@ -1,32 +1,32 @@
-import React, { useState, useEffect } from 'react'
-import axios from 'axios'
+import React from 'react'
+// import axios from 'axios'
 import Button from './Button'
 
 const UserScores = () => {
-  const [userGames, setUserGames] = useState([])
-  const [playerId, setPlayerId] = useState(5)
+  // const [games, setUserGames] = useState([])
+  // const [playerId, setPlayerId] = useState(5)
 
   /*
     Store into local data under a UserName Key that is an array of objects, and each time a new game occurs we want to use the spread operator to add another instance of the game and then store it all back into local storage to be pulled out into UserScores.
    */
 
   // useEffect(() => {
-    //example
-    //   const token = localStorage.getItem('token') || null;
-    //   axios.get('url', {
-    //     headers: {
-    //       'Authorization': token
-    //     }
-    //   })
-    //   axios.post('url', {name: 'krishna', email: 'email@me.com'}, {
-    //     headers: {}
-    //   })
-    // const Axios = axios.create({
-    //   header: {
-    //     'Authorization': token
-    //   }
-    // });
-    //end example
+  //example
+  //   const token = localStorage.getItem('token') || null;
+  //   axios.get('url', {
+  //     headers: {
+  //       'Authorization': token
+  //     }
+  //   })
+  //   axios.post('url', {name: 'krishna', email: 'email@me.com'}, {
+  //     headers: {}
+  //   })
+  // const Axios = axios.create({
+  //   header: {
+  //     'Authorization': token
+  //   }
+  // });
+  //end example
 
   //   axios
   //     .get(`https://prod-celebrity-dead-alive.herokuapp.com/api/players/${playerId}/scores`)
@@ -44,12 +44,9 @@ const UserScores = () => {
   //     })
   // }, [])
 
-  let isNameHere = window.localStorage.getItem('SignUpCred') || ''
+  let isNameHere = window.localStorage.getItem('SignUpCred')
 
-  let games;
-  if (isNameHere) {
-    games = JSON.parse(window.localStorage.getItem(isNameHere))
-  }
+  let games = JSON.parse(window.localStorage.getItem(isNameHere))
 
   return (
     <div className='userscores-screen'>
