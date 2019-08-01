@@ -68,7 +68,7 @@ const GameScreen = () => {
 
 
 
-  window.localStorage.setItem("HighScore", JSON.stringify(score))
+  window.localStorage.setItem("CorrectGuesses", JSON.stringify(score))
   window.localStorage.setItem("TotalGuesses", JSON.stringify(guesses))
 
   return (
