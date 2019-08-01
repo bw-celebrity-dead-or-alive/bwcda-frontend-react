@@ -112,10 +112,8 @@ button:hover {
         flex-direction: column;
         button {
           background-color: $red;
-          a {
-            color: $white;
-            text-decoration: none;
-          }
+          color: $white;
+          text-decoration: none;
         }
       }
       .button:last-child {
@@ -206,19 +204,15 @@ button:hover {
           button {
             background-color: $red;
             margin-bottom: 2rem;
-            a {
-              color: $white;
-              text-decoration: none;
-            }
+            color: $white;
+            text-decoration: none;
           }
         }
       }
       button {
         background-color: $purple;
-        a {
-          color: $white;
-          text-decoration: none;
-        }
+        color: $white;
+        text-decoration: none;
       }
     }
     // HALL OF FAME LEADERBOARD MOBILE
@@ -271,10 +265,8 @@ button:hover {
         }
         button {
           background-color: $purple;
-          a {
-            color: $white;
-            text-decoration: none;
-          }
+          color: $white;
+          text-decoration: none;
         }
       }
     }
@@ -328,10 +320,8 @@ button:hover {
         }
         button {
           background-color: $purple;
-          a {
-            color: $white;
-            text-decoration: none;
-          }
+          color: $white;
+          text-decoration: none;
         }
       }
     }
@@ -356,6 +346,7 @@ button:hover {
         .start-content {
           display: flex;
           justify-content: center;
+          flex-direction: column;
           h2 {
             max-width: 50%;
           }
