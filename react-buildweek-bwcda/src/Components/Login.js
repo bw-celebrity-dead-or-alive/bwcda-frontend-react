@@ -12,7 +12,7 @@ const LoginScreen = () => {
     <div className='end-screen'>
       <div className='end-content'>
         <div className='name-form'>
-          <form onSubmit=''>
+          <form>
             <label htmlFor='username'>
               Username
           <input
@@ -32,7 +32,9 @@ const LoginScreen = () => {
                 onChange={handleChange}
               />
             </label>
-            <Button type='submit' buttonText={'LOGIN'} />
+            <Button type='submit' buttonText={'SUBMIT'} pathName={''} />
+            <Button type='submit' buttonText={'SIGNUP'} pathName={'signup'} />
+
           </form>
         </div></div></div>
   )

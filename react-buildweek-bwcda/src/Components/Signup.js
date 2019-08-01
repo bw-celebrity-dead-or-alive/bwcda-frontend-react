@@ -42,7 +42,7 @@ const SignupScreen = () => {
                                 onChange={handleChange}
                             />
                         </label>
-                        <Button type='submit' buttonText={'LOGIN'} />
+                        <Button type='submit' buttonText={'SUBMIT'} pathName={''} />
                     </form>
                 </div></div></div>
     )
