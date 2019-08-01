@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import Button from './Button'
 
-
 const LoginScreen = () => {
   const [loginCred, setloginCred] = useState({ email: '', password: '' })
 

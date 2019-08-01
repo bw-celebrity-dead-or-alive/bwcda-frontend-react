@@ -50,6 +50,7 @@
 	}
 }
 
+
 .play-screen {
   animation: enterRight ease .5s;
 }
@@ -57,6 +58,11 @@
 .play-content {
    animation: fadeIn ease-in .5s;
 }
+
+.end-screen{
+    animation: enterRight ease .5s;
+}
+
 
 @keyframes fadeIn{
   0% {
@@ -75,24 +81,101 @@
 
 @keyframes enterRight {
   0% {
+    opacity: 0;
     transform:  translate(600px,0px);
   }
   100% {
+    opacity: 1;
     transform:  translate(0px,0px);
   }
 }
 
-// .exitLeft {
-//   animation-name: exitLeft;
-//   transform-origin: center;
-//   animation-iteration-count: 1;
-// }
 
-// @keyframes exitLeft {
+.fadeOut {
+  animation-delay: 28s;
+  animation-name: fadeOut;
+}
+
+@keyframes fadeOut {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
+
+.exitLeft {
+  animation-name: exitLeft;
+  transform-origin: center;
+  animation-iteration-count: 1;
+}
+
+
+@keyframes exitLeft {
+  0% {
+    transform:  translate(0px,0px);
+  }
+  100% {
+    transform:  translate(-600px,0px);
+  }
+}
+
+@keyframes jackInTheBox {
+  from {
+    opacity: 0;
+    transform: scale(0.1) rotate(30deg);
+    transform-origin: center bottom;
+  }
+
+  50% {
+    transform: rotate(-10deg);
+  }
+
+  70% {
+    transform: rotate(3deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.jackInTheBox {
+  animation-name: jackInTheBox;
+  transform-origin: center bottom;
+  animation-iteration-count: 1;
+}
+
+// .lds-ring {
+//   display: inline-block;
+//   position: relative;
+//   width: 64px;
+//   height: 64px;
+// }
+// .lds-ring div {
+//   box-sizing: border-box;
+//   display: block;
+//   position: absolute;
+//   width: 51px;
+//   height: 51px;
+//   margin: 6px;
+//   border: 6px solid #fff;
+//   border-radius: 50%;
+//   animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+//   border-color: #fff transparent transparent transparent;
+// }
+// .lds-ring div:nth-child(1) {
+//   animation-delay: -0.45s;
+// }
+// .lds-ring div:nth-child(2) {
+//   animation-delay: -0.3s;
+// }
+// .lds-ring div:nth-child(3) {
+//   animation-delay: -0.15s;
+// }
+// @keyframes lds-ring {
 //   0% {
-//     transform:  translate(0px,0px);
+//     transform: rotate(0deg);
 //   }
 //   100% {
-//     transform:  translate(-600px,0px);
+//     transform: rotate(360deg);
 //   }
 // }
