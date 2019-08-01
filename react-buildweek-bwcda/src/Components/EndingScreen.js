@@ -7,7 +7,10 @@ const EndingScreen = () => {
   const guess = window.localStorage.getItem("TotalGuesses")
 
   let displayScore = Math.floor(score * (10 * (score / guess)))
-  isNaN(displayScore) ? displayScore = 0 : console.log('Is number')
+  // if (isNaN(displayScore)) {
+  //   displayScore = 0;
+  //   return displayScore;
+  // }
 
   let isNameHere = window.localStorage.getItem("SignUpCred") || ""
 
@@ -38,7 +41,7 @@ const EndingScreen = () => {
         <br />
         <h4>CORRECT GUESSES: {score}</h4>
         <h4>TOTAL GUESSES: {guess}</h4>
-        <h3>SCORE: {Math.floor(displayScore)}</h3>
+        <h3>SCORE: {isNaN(displayScore) ? 0 : displayScore} </h3>
         {isNameHere ? null : <div>
           <h4>Enter your name to save your score:</h4>
           <NameForm />
