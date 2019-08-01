@@ -9,6 +9,7 @@ const StartScreen = () => {
           Have you ever had an argument about whether a celebrity is dead or
           alive?
         </h2>
+        <h3>Get ready to guess as many as you can in 30 seconds!</h3>
       </header>
       <Button buttonText={'LOGIN'} pathName={'login'} />
       <Button buttonText={'START PLAYING'} pathName={'play'} />
