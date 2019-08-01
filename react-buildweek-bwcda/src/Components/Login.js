@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState } from 'react'
 import Button from './Button'
+
 
 const LoginScreen = () => {
   const [loginCred, setloginCred] = useState({ username: '', password: '' })
@@ -9,34 +10,33 @@ const LoginScreen = () => {
   }
 
   return (
-    <div className='end-screen'>
-      <div className='end-content'>
-        <div className='name-form'>
-          <form>
-            <label htmlFor='username'>
-              Username
+    <div className='login-screen'>
+      <form>
+        <label htmlFor='email'>
+          Email
           <input
-                placeholder='username'
-                value={loginCred.username}
-                name='username'
-                onChange={handleChange}
-              />
-            </label>
-            <label htmlFor='password'>
-              Password
+            placeholder='email'
+            value={loginCred.email}
+            name='email'
+            onChange={handleChange}
+          />
+        </label>
+        <label htmlFor='password'>
+          Password
           <input
-                type="password"
-                placeholder='password'
-                value={loginCred.password}
-                name='password'
-                onChange={handleChange}
-              />
-            </label>
-            <Button type='submit' buttonText={'SUBMIT'} pathName={''} />
-            <Button type='submit' buttonText={'SIGNUP'} pathName={'signup'} />
-
-          </form>
-        </div></div></div>
+            type='password'
+            placeholder='password'
+            value={loginCred.password}
+            name='password'
+            onChange={handleChange}
+          />
+        </label>
+        <div className='buttons'>
+          <Button type='submit' buttonText={'SUBMIT'} pathName={''} />
+          <Button type='submit' buttonText={'SIGNUP'} pathName={'signup'} />
+        </div>
+      </form>
+    </div>
   )
 }
 

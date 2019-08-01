@@ -11,8 +11,10 @@ const StartScreen = () => {
         </h2>
         <h3>Get ready to guess as many as you can in 30 seconds!</h3>
       </header>
-      <Button buttonText={'LOGIN'} pathName={'login'} />
-      <Button buttonText={'START PLAYING'} pathName={'play'} />
+      <div className='buttons'>
+        <Button buttonText={'START PLAYING'} pathName={'play'} />
+        <Button buttonText={'LOGIN'} pathName={'login'} />
+      </div>
     </div>
   )
 }

@@ -8,13 +8,11 @@ const LeaderBoard = () => {
 
   useEffect(() => {
     axios
-      .get('https://prod-celebrity-dead-alive.herokuapp.com/api/leaderboard/')
+      .get(
+        'https://prod-celebrity-dead-alive.herokuapp.com/api/leaderboard/?page=1&limit=10'
+      )
       .then((res) => {
         const highScoresArr = res.data
-          .sort((a, b) => {
-            return b.score - a.score
-          })
-          .slice(0, 10)
         setHighScores(highScoresArr)
       })
       .catch((err) => {
@@ -23,9 +21,9 @@ const LeaderBoard = () => {
   }, [])
 
   return (
-    <div className='leaderboard-screen'>
+    <>
       {highScores ? (
-        <header className='leaderboard-content'>
+        <div className='leaderboard-screen'>
           <h1>HALL OF FAME</h1>
           <div className='grid-titles'>
             <h2>RANK</h2>
@@ -33,28 +31,32 @@ const LeaderBoard = () => {
             <h2>SCORE</h2>
           </div>
           <div className='grid-container'>
-            <div className='rank-column'>
-              {highScores.map((user, i) => <h3 key={user.id}>{i+1}</h3>)}
+            <div className='grid-column'>
+              {highScores.map((user, i) => (
+                <h3 key={user.id}>{i + 1}</h3>
+              ))}
             </div>
-            <div className='name-column'>
+            <div className='grid-column'>
               {highScores.map((person) => (
                 <h3 key={person.id}>{person.name}</h3>
               ))}
             </div>
-            <div className='score-column'>
+            <div className='grid-column'>
               {highScores.map((person) => (
                 <h3 key={person.id}>{person.score}</h3>
               ))}
             </div>
             <div />
           </div>
-          <h4>Login to save and view your own high scores!</h4>
-          <Button buttonText={'LOGIN'} pathName={'login'} />
-        </header>
+          <div className='logged-in-hide'>
+            <h4>Login to save and view your own high scores!</h4>
+            <Button buttonText={'LOGIN'} pathName={'login'} />
+          </div>
+        </div>
       ) : (
         <div>Loading Scores...</div>
       )}
-    </div>
+    </>
   )
 }
 

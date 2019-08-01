@@ -6,11 +6,9 @@ const Button = (props) => {
   let path = props.pathName
 
   return (
-    <div className='button'>
-      <Link to={`/${path}`}>
-        <button>{text}</button>
-      </Link>
-    </div>
+    <Link to={`/${path}`}>
+      <button>{text}</button>
+    </Link>
   )
 }
 export default Button

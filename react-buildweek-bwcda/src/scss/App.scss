@@ -94,31 +94,35 @@ button:hover {
       margin: 1rem;
       height: 20vh;
       max-height: 100%;
-      // width: auto;
     }
     // START SCREEN MOBILE
     .start-screen {
       .start-content {
-        text-align: center;
+        @include flex(center, center);
+        flex-direction: column;
         h2 {
-          margin: 3rem 4rem;
+          max-width: 70%;
+          margin: 3rem;
         }
         h3 {
+          max-width: 50%;
           margin: 2rem;
         }
       }
-      .button {
+      .buttons {
         @include flex(space-around, center);
         flex-direction: column;
-        button {
-          background-color: $red;
-          color: $white;
-          text-decoration: none;
+        a {
+          button {
+            background-color: $purple;
+            color: $white;
+            text-decoration: none;
+          }
         }
-      }
-      .button:last-child {
-        button {
-          background-color: $purple;
+        a:last-child {
+          button {
+            background-color: $red;
+          }
         }
       }
     }
@@ -188,7 +192,7 @@ button:hover {
           @include flex(center, center);
           flex-direction: column;
           label {
-            @include flex(center, flex-start);
+            @include flex(center, center);
             flex-direction: column;
             padding: 1rem 0;
             font-size: 1.4rem;
@@ -217,57 +221,39 @@ button:hover {
     }
     // HALL OF FAME LEADERBOARD MOBILE
     .leaderboard-screen {
-      .leaderboard-content {
-        h1 {
-          font-family: 'Bowlby One', sans-serif;
-          padding: 1rem;
-          color: $red;
+      h1 {
+        font-family: 'Bowlby One', sans-serif;
+        padding: 1rem;
+        color: $red;
+      }
+      .grid-titles {
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
+        h2 {
+          font-size: 2rem;
+          padding: 0.6rem 0;
+          border-bottom: 1px solid $grey;
         }
-        .grid-titles {
-          display: grid;
-          grid-template-columns: 1fr 3fr 1fr;
-          h2 {
-            padding: 1rem 0;
-            border-bottom: 1px solid $grey;
-            margin-bottom: 1rem;
+      }
+      .grid-container {
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
+        .grid-column {
+          h3 {
+            padding: 0.4rem 0;
+          }
+          h3:nth-child(even) {
+            background-color: $red-opacity;
           }
         }
-        .grid-container {
-          display: grid;
-          grid-template-columns: 1fr 3fr 1fr;
-          .rank-column {
-            h3 {
-              padding: 0.8rem 0;
-            }
-            h3:nth-child(even) {
-              background-color: $red-opacity;
-            }
-          }
-          .name-column {
-            h3 {
-              padding: 0.8rem 0;
-            }
-            h3:nth-child(even) {
-              background-color: $red-opacity;
-            }
-          }
-          .score-column {
-            h3 {
-              padding: 0.8rem 0;
-            }
-            h3:nth-child(even) {
-              background-color: $red-opacity;
-            }
-          }
-        }
-        h4 {
-          padding: 2rem;
-        }
-        button {
-          background-color: $purple;
-          color: $white;
-          text-decoration: none;
-        }
+      }
+      h4 {
+        padding: 2rem 0 0.4rem 0;
+      }
+      button {
+        background-color: $red;
+        color: $white;
+        text-decoration: none;
       }
     }
     // USER SCORES MOBILE
@@ -325,6 +311,51 @@ button:hover {
         }
       }
     }
+    // LOGIN MOBILE
+    .login-screen {
+      @include flex(center, center);
+      flex-direction: column;
+      form {
+        @include flex(center, center);
+        flex-direction: column;
+        label {
+          @include flex(center, center);
+          flex-direction: column;
+          padding: 1rem 0;
+          font-size: 1.4rem;
+          color: rgba($black, 0.6);
+          line-height: 1.6rem;
+          text-transform: uppercase;
+          input {
+            padding: 0.6rem;
+            border: 1px solid $grey;
+            border-radius: 6px;
+          }
+        }
+        .buttons {
+          @include flex(center, center);
+          flex-direction: column;
+          a {
+            button {
+              background-color: $red;
+              margin-bottom: 2rem;
+              color: $white;
+              text-decoration: none;
+            }
+          }
+          a:last-child {
+            button {
+              background-color: $purple;
+              color: $white;
+              text-decoration: none;
+            }
+          }
+        }
+      }
+    }
+    // SIGN UP MOBILE
+    .signup-screen {
+    }
   }
 }
 
@@ -343,14 +374,6 @@ button:hover {
       }
       // START SCREEN DESKTOP
       .start-screen {
-        .start-content {
-          display: flex;
-          justify-content: center;
-          flex-direction: column;
-          h2 {
-            max-width: 50%;
-          }
-        }
         .button {
           button {
             a {
@@ -411,6 +434,25 @@ button:hover {
               line-height: 2.4rem;
             }
           }
+        }
+      }
+      // HALL OF FAME LEADERBOARD MOBILE
+      .leaderboard-screen {
+        .grid-titles {
+          h2 {
+            font-size: 2.2rem;
+            padding: 1rem 0;
+          }
+        }
+        .grid-container {
+          .grid-column {
+            h3 {
+              padding: 0.6rem 0;
+            }
+          }
+        }
+        h4 {
+          padding: 2.4rem 0 1.4rem 0;
         }
       }
     }
