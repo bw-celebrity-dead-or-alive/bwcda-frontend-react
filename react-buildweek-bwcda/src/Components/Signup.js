@@ -12,7 +12,7 @@ const SignupScreen = () => {
         <div className='end-screen'>
             <div className='end-content'>
                 <div className='name-form'>
-                    <form onSubmit=''>
+                    <form>
                         <label htmlFor='username'>
                             Name
                         <input
