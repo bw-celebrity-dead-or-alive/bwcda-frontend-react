@@ -66,9 +66,9 @@ const GameScreen = () => {
     setGuesses(guesses + 1)
   }
 
-  window.localStorage.setItem("HighScore", JSON.stringify(score))
+  window.localStorage.setItem("CorrectGuesses", JSON.stringify(score))
   window.localStorage.setItem("TotalGuesses", JSON.stringify(guesses))
-
+  
 //   window.onload = function(){
 //       var btn = document.getElementById(answerbutton);
 //       btn.onclick = function(event){
