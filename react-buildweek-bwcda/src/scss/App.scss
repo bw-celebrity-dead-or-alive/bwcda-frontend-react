@@ -2,7 +2,6 @@
 @import 'variables';
 @import 'mixins';
 @import url('https://fonts.googleapis.com/css?family=Bowlby+One|Ropa+Sans&display=swap');
-
 * {
   box-sizing: border-box;
 }
@@ -62,9 +61,14 @@ button {
   font-family: 'Ropa Sans', sans-serif;
   font-size: 1.6rem;
   cursor: pointer;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
 }
 
 button:hover {
+  animation-name: bounce;
   box-shadow: 0 0 3px 3px $purple-opacity;
 }
 
@@ -133,6 +137,7 @@ button:hover {
           }
         }
         .container {
+          animation-name: fade-in;
           margin: 1.6rem 0;
         }
         .celeb-card {

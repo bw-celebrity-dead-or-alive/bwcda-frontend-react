@@ -1,3 +1,8 @@
+@import 'reset';
+@import 'variables';
+@import 'mixins';
+@import url('https://fonts.googleapis.com/css?family=Bowlby+One|Ropa+Sans&display=swap');
+
 .progress {
     margin: 5px;
     padding: 6px;
@@ -7,6 +12,7 @@
   }
   
   .progress-bar {    
+    text-align: end;
     height: 18px;
     background-color: #ee303c;  
     border-radius: 4px; 
@@ -15,7 +21,7 @@
   }
   
   .progress-striped .progress-bar {     
-    background-color: #ee1c42; 
+    background-color: $red;
     width: 100%; 
     animation: progressAnimationStrike 30s linear;
   }
@@ -25,39 +31,68 @@
        to   { width: 100% }
   }
    
-  
-  @keyframes progressAnimation {
-    0%   { width: 5%; background-color: #F9BCCA;}
-    100% { width: 85%; background-color: #EF476F; }
+.bounce {
+  animation-name: bounce;
+  transform-origin: center bottom;
+  animation-iteration-count: 1;
+}
+
+
+@keyframes bounce {
+	0%, 100%, 20%, 50%, 80% {
+		transform:         translateY(0)
+	}
+	40% {
+		transform:         translateY(-3px)
+	}
+	60% {
+		transform:         translateY(-2px)
+	}
+}
+
+.play-screen {
+  animation: enterRight ease .5s;
+}
+
+.play-content {
+   animation: fadeIn ease-in .5s;
+}
+
+@keyframes fadeIn{
+  0% {
+    opacity:0;
   }
-  
-  $green: #4cd964;
-  $turquoise: #5ac8fa;
-  $blue: #007aff;
-  $light-blue: #7DC8E8;
-  $purple: #5856d6;
-  $red: #ff2d55;
-  
-  
-  @keyframes colorAnimation {
-    0% { 
-      background-image: 
-      linear-gradient(to right, $green, $turquoise, $blue, $light-blue, $purple, $red);
-    }
-    20% { 
-      background-image: 
-      linear-gradient(to right, $turquoise, $blue, $light-blue, $purple, $red, $green);
-    }
-    40% { 
-      background-image: 
-      linear-gradient(to right, $blue, $light-blue, $purple, $red, $green, $turquoise);
-    }
-    60% { 
-      background-image: 
-      linear-gradient(to right, $light-blue, $purple, $red, $green, $turquoise, $blue);
-    }
-    100% { 
-      background-image: 
-      linear-gradient(to right, $purple, $red, $green, $turquoise, $blue, $light-blue);
-    }
+  100% {
+    opacity:1;
   }
+}
+
+.enterRight {
+  animation-name: enterRight;
+  transform-origin: center;
+  animation-iteration-count: 1;
+}
+
+@keyframes enterRight {
+  0% {
+    transform:  translate(600px,0px);
+  }
+  100% {
+    transform:  translate(0px,0px);
+  }
+}
+
+// .exitLeft {
+//   animation-name: exitLeft;
+//   transform-origin: center;
+//   animation-iteration-count: 1;
+// }
+
+// @keyframes exitLeft {
+//   0% {
+//     transform:  translate(0px,0px);
+//   }
+//   100% {
+//     transform:  translate(-600px,0px);
+//   }
+// }

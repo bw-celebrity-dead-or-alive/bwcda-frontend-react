@@ -1,7 +1,5 @@
-//just a styled 30 second time bar
 
-//Just a concept
-import React from 'react'
+import React from 'react';
 import transition from '..//scss/transition.scss'
 
 const Timebar = () => {
