@@ -11,6 +11,10 @@ const EndingScreen = () => {
   //   displayScore = 0;
   //   return displayScore;
   // }
+  if (isNaN(displayScore)) {
+    displayScore = 0;
+  }
+
 
   let isNameHere = window.localStorage.getItem("SignUpCred") || ""
 

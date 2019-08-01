@@ -46,7 +46,7 @@ const UserScores = () => {
 
   let isNameHere = window.localStorage.getItem('SignUpCred')
 
-  let games = JSON.parse(window.localStorage.getItem(isNameHere))
+  let games = JSON.parse(window.localStorage.getItem(isNameHere)) || []
 
   return (
     <div className='userscores-screen'>
