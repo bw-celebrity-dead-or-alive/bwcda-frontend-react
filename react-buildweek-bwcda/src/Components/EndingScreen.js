@@ -7,19 +7,12 @@ const EndingScreen = () => {
   const guess = window.localStorage.getItem("TotalGuesses")
 
   let displayScore = Math.floor(score * (10 * (score / guess)))
-  // if (isNaN(displayScore)) {
-  //   displayScore = 0;
-  //   return displayScore;
-  // }
   if (isNaN(displayScore)) {
     displayScore = 0;
   }
 
-
   let isNameHere = window.localStorage.getItem("SignUpCred") || ""
-
   window.localStorage.setItem("GameScore", JSON.stringify(displayScore))
-
 
   let today = new Date()
   const dd = String(today.getDate()).padStart(2, '0')
@@ -57,7 +50,3 @@ const EndingScreen = () => {
 }
 
 export default EndingScreen
-
-//pulling ending score from game screeen
-
-//just text that gives a score along with a log in and play button

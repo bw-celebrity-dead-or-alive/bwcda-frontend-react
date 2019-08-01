@@ -1,6 +1,3 @@
-//Tim                          //Jeff               //Kristin
-// Login screen, Need         //Animation           //User ONLY high Score screen
-
 import React, { useEffect, useState } from "react";
 import { Redirect, Route } from 'react-router-dom'
 import axios from "axios";
@@ -9,7 +6,6 @@ import Timebar from './Timebar';
 
 
 const GameScreen = () => {
-
   const randomID = () => {
     return Math.floor((Math.random() * 300) + 1)
   }
@@ -69,25 +65,6 @@ const GameScreen = () => {
   window.localStorage.setItem("CorrectGuesses", JSON.stringify(score))
   window.localStorage.setItem("TotalGuesses", JSON.stringify(guesses))
 
-  // const setAniToggle = () => {
-  //   const [ani, setAni] = setAni();
-  //   const toggleMode = e => {
-  //     e.preventDefault();
-  //     setAni(!ani);
-  //   };
-
-//   window.onload = function(){
-//     var btn = document.querySelector('answerbutton');
-//     btn.onclick = function(event){
-//     btn.children[0].classList.add('celeb-card-ani');
-//         setTimeout(function(){
-//           btn.children[0].classList.remove('celeb-card-ani');
-//         }, 500);
-//     }
-//   //trying to set button to add and remove class list of second animation
-// }
-
-  
   return (
     <div className='play-screen'>
       <Route path="/play" render={() => (

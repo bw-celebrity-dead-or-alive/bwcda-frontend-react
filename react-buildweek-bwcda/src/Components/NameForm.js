@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Button from './Button'
 
-const NameForm = (props) => {
+const NameForm = () => {
   const [playerName, setPlayerName] = useState('')
 
   const handleChange = (e) => {
@@ -14,8 +14,6 @@ const NameForm = (props) => {
   const handleSubmit = (e) => {
     console.log('val', e.target.value)
     e.preventDefault()
-    // alert(`Thanks ${playerName.firstname}! Your score has been saved!`)
-    // window.localStorage.setItem("SignUpCred", playerName)
     setPlayerName('')
   }
 
