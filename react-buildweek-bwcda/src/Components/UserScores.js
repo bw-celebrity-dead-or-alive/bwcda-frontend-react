@@ -7,6 +7,24 @@ const UserScores = () => {
   const [playerId, setPlayerId] = useState(5)
 
   useEffect(() => {
+    //example
+  //   const token = localStorage.getItem('token') || null;
+  //   axios.get('url', {
+  //     headers: {
+  //       'Authorization': token
+  //     }
+  //   })
+  //   axios.post('url', {name: 'krishna', email: 'email@me.com'}, {
+  //     headers: {
+
+  //     }
+  //   })
+  // const Axios = axios.create({
+  //   header: {
+  //     'Authorization': token
+  //   }
+  // });
+    //end example
     axios
       .get(`https://prod-celebrity-dead-alive.herokuapp.com/api/players/${playerId}/scores`)
       .then((res) => {
