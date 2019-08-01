@@ -7,6 +7,7 @@ import axios from "axios";
 import CelebCard from './CelebCard';
 import Timebar from './Timebar';
 
+
 const GameScreen = () => {
 
   const randomID = () => {
@@ -83,7 +84,6 @@ const GameScreen = () => {
               </div>
               <Timebar />
               {data ? <CelebCard data={data} /> : <div>Loading...</div>}
-
               <button onClick={() => isDead(data.death)}>Dead</button>
               <button onClick={() => isAlive(data.death)}>Alive</button>
             </div>
