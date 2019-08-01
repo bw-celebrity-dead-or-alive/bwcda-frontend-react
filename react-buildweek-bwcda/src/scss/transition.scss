@@ -56,13 +56,17 @@
 }
 
 .end-screen , .leaderboard-screen , .start-screen,  .userscores-screen , .login-screen , .signup-screen{
-  animation: fadeIn ease-in .2s ;
+  animation: fadeIn ease-in .1s ;
 }
 
 .App-logo{
   animation:  jackInTheBox ease .5s;
 }
 
+.celeb-card-ani{
+   animation: exitLeft ease .3s, fadeOut ease-in .3s ;
+}
+//trying on an update to push a new animation
 
 @keyframes fadeIn{
   0% {
@@ -160,6 +164,8 @@
   transform-origin: center bottom;
   animation-iteration-count: 1;
 }
+
+
 
 // .lds-ring {
 //   display: inline-block;
