@@ -9,19 +9,22 @@ const EndingScreen = () => {
   let displayScore = score * (10 * (score / guess))
   isNaN(displayScore) ? displayScore = 0 : console.log('Is number')
 
+  let isNameHere = window.localStorage.getItem("SignUpCred") || ""
 
   return (
     <div className='end-screen'>
       <header className='end-content'>
-        <h2>Congrats!</h2>
+        {isNameHere ? <h2>Congrats{` ${isNameHere}`}! </h2> : <h2>Congrats!</h2>}
         <br />
         <h4>You completed the quiz!</h4>
         <br />
         <h4>CORRECT GUESSES: {score}</h4>
         <h4>TOTAL GUESSES: {guess}</h4>
         <h3>SCORE: {Math.floor(displayScore)}</h3>
-        <h4>Enter your name to save your score:</h4>
-        <NameForm />
+        {isNameHere ? null : <div>
+          <h4>Enter your name to save your score:</h4>
+          <NameForm />
+        </div>}
       </header>
       <Button buttonText={'PLAY AGAIN'} pathName={'play'} />
     </div>

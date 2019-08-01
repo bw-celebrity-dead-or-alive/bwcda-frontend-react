@@ -82,7 +82,7 @@ const GameScreen = () => {
                 <h3>Correct Guesses:&nbsp;&nbsp; {score}</h3>
               </div>
               <Timebar />
-              {data ? <CelebCard data={data} /> : <div>Loading...</div>}
+              {data ? <CelebCard data={data} className="play-screen" /> : <div>Loading...</div>}
 
               <button onClick={() => isDead(data.death)}>Dead</button>
               <button onClick={() => isAlive(data.death)}>Alive</button>

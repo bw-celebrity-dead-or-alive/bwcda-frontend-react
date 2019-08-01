@@ -14,7 +14,11 @@ const NameForm = () => {
     // console.log(e.target.value)
     setPlayerName('')
     // alert(`Thanks ${playerName.firstname}! Your score has been saved!`)
+    window.localStorage.setItem("SignUpCred", (playerName))
   }
+
+
+
 
   return (
     <div className='name-form'>
