@@ -4,12 +4,13 @@ import Button from './Button'
 
 const UserScores = () => {
   const [userGames, setUserGames] = useState([])
-  const [playerId, setPlayerId] = useState(6)
+  const [playerId, setPlayerId] = useState(5)
 
   useEffect(() => {
     axios
-      .get(`https://prod-celebrity-dead-alive.herokuapp.com/api/leaderboard/players/${playerId}`)
+      .get(`https://prod-celebrity-dead-alive.herokuapp.com/api/players/${playerId}/scores`)
       .then((res) => {
+        // console.log(res)
         const userGamesArr = res.data
         .sort((a, b) => {
           return b.score - a.score
@@ -22,8 +23,6 @@ const UserScores = () => {
       })
     }, [])
 
-    console.log('game', userGames.slice(0,1))
-    console.log('game', userGames)
   return (
     <div className='userscores-screen'>
       <header className='userscores-content'>
