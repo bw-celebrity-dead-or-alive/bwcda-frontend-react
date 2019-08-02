@@ -13,6 +13,8 @@ import logo from './logo.svg'
 import '../src/scss/App.scss'
 import UserScores from './Components/UserScores';
 
+export const BASE_URL = 'https://prod-celebrity-dead-alive.herokuapp.com/api';
+
 export default function App() {
   return (
     <div className='App'>
