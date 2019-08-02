@@ -18,17 +18,17 @@ const UserScores = () => {
         <div className='grid-container'>
           <div className='rank-column'>
             {games.map((game, i) => (
-              <h3 key={game.score}>{i + 1}</h3>
+              <h3 key={game.score + i}>{i + 1}</h3>
             ))}
           </div>
           <div className='score-column'>
-            {games.map((game) => (
-              <h3 key={game.score}>{game.score}</h3>
+            {games.map((game, i) => (
+              <h3 key={game.score + i}>{game.score}</h3>
             ))}
           </div>
           <div className='date-column'>
-            {games.map((game) => (
-              <h3 key={game.score}>{game['date']}</h3>
+            {games.map((game, i) => (
+              <h3 key={game.score + i}>{game.date}</h3>
             ))}
           </div>
           <div />
