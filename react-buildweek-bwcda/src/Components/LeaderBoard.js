@@ -4,7 +4,6 @@ import Button from './Button'
 
 const LeaderBoard = () => {
   const [highScores, setHighScores] = useState([])
-  const [loggedIn, setLoggedIn] = useState(false)
 
   useEffect(() => {
     axios
@@ -51,15 +50,14 @@ const LeaderBoard = () => {
             <div />
           </div>
           {isNameHere === "" ?
-            (<div>
+            (<>
               <h4>Login to save and view your own high scores!</h4>
               <Button buttonText={'LOGIN'} pathName={'login'} />
-            </div>) : <div>
+            </>) : <>
               <h4>Play again to beat the high score!</h4>
               <Button buttonText={'PLAY AGAIN'} pathName={'play'} />
-            </div>
+            </>
           }
-
         </div>
       ) : (
           <div>Loading Scores...</div>

@@ -6,13 +6,11 @@ const NameForm = () => {
 
   const handleChange = (e) => {
     setPlayerName(e.target.value)
-    console.log(playerName)
   }
 
   window.localStorage.setItem("SignUpCred", playerName)
 
   const handleSubmit = (e) => {
-    console.log('val', e.target.value)
     e.preventDefault()
     setPlayerName('')
   }

@@ -7,11 +7,13 @@ const EndingScreen = () => {
   const guess = window.localStorage.getItem("TotalGuesses")
 
   let displayScore = Math.floor(score * (10 * (score / guess)))
+
   if (isNaN(displayScore)) {
     displayScore = 0;
   }
 
   let isNameHere = window.localStorage.getItem("SignUpCred") || ""
+
   window.localStorage.setItem("GameScore", JSON.stringify(displayScore))
 
   let today = new Date()
@@ -19,8 +21,6 @@ const EndingScreen = () => {
   const mm = String(today.getMonth() + 1).padStart(2, '0') // January is 0!
   const yyyy = today.getFullYear()
   today = mm + '/' + dd + '/' + yyyy;
-
-  const tempdate = new Date().toString().slice(4, 15) // -> returns Aug 01 2019
 
   if (isNameHere) {
     let oldGames = JSON.parse(window.localStorage.getItem(isNameHere)) || []
