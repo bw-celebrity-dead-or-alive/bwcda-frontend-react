@@ -7,27 +7,20 @@ const EndingScreen = () => {
   const guess = window.localStorage.getItem("TotalGuesses")
 
   let displayScore = Math.floor(score * (10 * (score / guess)))
-  // if (isNaN(displayScore)) {
-  //   displayScore = 0;
-  //   return displayScore;
-  // }
+
   if (isNaN(displayScore)) {
     displayScore = 0;
   }
 
-
   let isNameHere = window.localStorage.getItem("SignUpCred") || ""
 
   window.localStorage.setItem("GameScore", JSON.stringify(displayScore))
-
 
   let today = new Date()
   const dd = String(today.getDate()).padStart(2, '0')
   const mm = String(today.getMonth() + 1).padStart(2, '0') // January is 0!
   const yyyy = today.getFullYear()
   today = mm + '/' + dd + '/' + yyyy;
-
-  const tempdate = new Date().toString().slice(4, 15) // -> returns Aug 01 2019
 
   if (isNameHere) {
     let oldGames = JSON.parse(window.localStorage.getItem(isNameHere)) || []
@@ -57,7 +50,3 @@ const EndingScreen = () => {
 }
 
 export default EndingScreen
-
-//pulling ending score from game screeen
-
-//just text that gives a score along with a log in and play button
