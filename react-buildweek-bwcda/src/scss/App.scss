@@ -6,6 +6,18 @@
   box-sizing: border-box;
 }
 
+* {
+outline: none;
+}
+
+button::-moz-focus-inner,
+input[type="reset"]::-moz-focus-inner,
+input[type="button"]::-moz-focus-inner,
+input[type="submit"]::-moz-focus-inner,
+input[type="file"] > input[type="button"]::-moz-focus-inner {
+border: none;
+}
+
 html {
   font-size: 62.5%;
 }
@@ -97,8 +109,8 @@ button:hover {
     }
   }
   .content {
+    // LOGO
     .App-logo {
-
       margin: 1rem;
       height: 20vh;
       max-height: 100%;
@@ -149,8 +161,6 @@ button:hover {
         .container {
           margin: 1.6rem 0;
         }
-        .loading{
-        }
         .celeb-card {
           // padding-bottom: 1rem;
           img {
@@ -173,6 +183,12 @@ button:hover {
           text-transform: uppercase;
           text-decoration: none;
           width: 100px;
+        }
+        .wrong {
+          -webkit-animation: shake-horizontal 0.8s
+            cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
+          animation: shake-horizontal 0.8s
+            cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
         }
         button:hover {
           box-shadow: inset 0 0 3px 3px $purple;
@@ -365,6 +381,36 @@ button:hover {
     }
     // SIGN UP MOBILE
     .signup-screen {
+      @include flex(center, center);
+      flex-direction: column;
+      form {
+        @include flex(center, center);
+        flex-direction: column;
+        label {
+          @include flex(center, center);
+          flex-direction: column;
+          padding: 1rem 0;
+          font-size: 1.4rem;
+          color: rgba($black, 0.6);
+          line-height: 1.6rem;
+          text-transform: uppercase;
+          input {
+            padding: 0.6rem;
+            border: 1px solid $grey;
+            border-radius: 6px;
+          }
+        }
+        button {
+          background-color: $red;
+          margin-bottom: 2rem;
+          color: $white;
+          text-decoration: none;
+        }
+      }
+    }
+    // ERROR 404
+    .error-404 {
+      margin: 3rem;
     }
   }
 }
@@ -469,17 +515,59 @@ button:hover {
   }
 }
 
-// .App-logo {
-//   animation: App-logo-spin infinite 20s linear;
-//   height: 40vmin;
-//   pointer-events: none;
-// }
-
-// @keyframes App-logo-spin {
-//   from {
-//     transform: rotate(0deg);
-//   }
-//   to {
-//     transform: rotate(360deg);
-//   }
-// }
+@-webkit-keyframes shake-horizontal {
+  0%,
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70% {
+    -webkit-transform: translateX(-10px);
+    transform: translateX(-10px);
+  }
+  20%,
+  40%,
+  60% {
+    -webkit-transform: translateX(10px);
+    transform: translateX(10px);
+  }
+  80% {
+    -webkit-transform: translateX(8px);
+    transform: translateX(8px);
+  }
+  90% {
+    -webkit-transform: translateX(-8px);
+    transform: translateX(-8px);
+  }
+}
+@keyframes shake-horizontal {
+  0%,
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70% {
+    -webkit-transform: translateX(-10px);
+    transform: translateX(-10px);
+  }
+  20%,
+  40%,
+  60% {
+    -webkit-transform: translateX(10px);
+    transform: translateX(10px);
+  }
+  80% {
+    -webkit-transform: translateX(8px);
+    transform: translateX(8px);
+  }
+  90% {
+    -webkit-transform: translateX(-8px);
+    transform: translateX(-8px);
+  }
+}
