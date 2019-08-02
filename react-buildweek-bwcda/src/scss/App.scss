@@ -4,10 +4,7 @@
 @import url('https://fonts.googleapis.com/css?family=Bowlby+One|Ropa+Sans&display=swap');
 * {
   box-sizing: border-box;
-}
-
-* {
-outline: none;
+  outline: none;
 }
 
 button::-moz-focus-inner,
@@ -78,10 +75,6 @@ button {
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
 }
-
-// button:focus {
-// animation-name: bounce;
-// }
 
 button:hover {
   box-shadow: 0 0 3px 3px $purple-opacity;

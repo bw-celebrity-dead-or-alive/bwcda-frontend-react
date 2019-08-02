@@ -49,7 +49,6 @@ const GameScreen = () => {
       setWrongDead(false)
     } else {
       setWrongDead(true)
-      console.log('True')
     }
     //Move to next card
     setId(randomID())
